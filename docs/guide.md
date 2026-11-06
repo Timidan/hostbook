@@ -123,3 +123,54 @@ hostbook names the cause of a failed connection and the fix, in Setup, on the ma
 | "can view, which covers scans, status and logs" | A co-admin with view access asked for a script or a change. | Give them *can operate*, or do it yourself. |
 
 To see a scan's full output, run `hermes hostbook scan` on Hermes's machine.
+
+## Reference
+
+### How it works
+
+```mermaid
+flowchart LR
+  A[You, or a co-admin, in chat] --> B[Hermes]
+  B -->|host_run, service_action| C{hostbook check}
+  C -->|who asked: people list| D{machine rule}
+  D -->|read only and a change| X[Blocked]
+  D -->|asks before changes| E[Your approval in chat]
+  D -->|open, or a read| F[Hermes terminal tool]
+  E --> F
+  F -->|one ssh call, script on stdin| G[(Your machine)]
+  H[Hermes cron, no AI] -->|read-only scan| G
+  G --> I[Hosts tab]
+```
+
+`host_run` builds one `ssh` call per machine and sends your script on standard input through a quoted heredoc, so nothing in it is interpreted twice. The call runs through Hermes's own terminal tool, which keeps Hermes's approval checks, timeouts and output limits. Before it runs, hostbook checks who asked and the machine's rule. Scans for the dashboard and the schedule run a fixed, read-only script you can read in Setup.
+
+### Tools Hermes gets
+
+| Tool | What it does |
+|---|---|
+| `host_run` | Runs a script on one or more machines. |
+| `host_services` | Lists what runs on each machine, with usage; scans if asked or never scanned. |
+| `service_action` | Status, logs, restart, start, stop or update for one service. |
+| `hostbook_setup` | Adds, removes or changes machines, finds new ones, sets the schedule. Owner only, and changes ask for approval. |
+
+### Command line
+
+| Command | |
+|---|---|
+| `hermes hostbook add <name> <user@address[:port]> [--key PATH] [--jump NAME] [--rule read\|approve\|open]` | Add or update a machine and check it. |
+| `hermes hostbook remove <name>` | Remove a machine and its scan data. |
+| `hermes hostbook list` | Machines, rules and the last scan. |
+| `hermes hostbook scan` | Scan every machine now. |
+| `hermes hostbook schedule off\|15m\|30m\|1h\|6h\|daily [--deliver TARGET]` | Set scheduled scans and where alerts go. |
+
+### Where hostbook keeps its data
+
+Everything lives in `plugin-data/hostbook/` in your Hermes home.
+
+| File | Contents |
+|---|---|
+| `hosts.yaml` | Machines: address, user, port, key path, jump host, rule. |
+| `people.yaml` | Co-admins by chat account. |
+| `settings.yaml` | Scan frequency, alert target, disk threshold. |
+| `services.json`, `history.json` | The last scan and 24 hours of usage. |
+| `recent.json` | The last 20 chat accounts that messaged Hermes, for picking co-admins. |

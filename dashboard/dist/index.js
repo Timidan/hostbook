@@ -1,4 +1,6 @@
-/* hostbook: the Hosts tab. Icons are Phosphor Icons (MIT, https://phosphoricons.com), duotone, as path data. */
+/* hostbook: the Hosts tab.
+   Interface icons: Phosphor Icons (MIT, https://phosphoricons.com), duotone, as path data.
+   Service logos: Simple Icons (CC0, https://simpleicons.org); trademarks belong to their owners. */
 (function () {
   "use strict";
 
@@ -42,9 +44,10 @@
     Plus: [["M216,56V200a16,16,0,0,1-16,16H56a16,16,0,0,1-16-16V56A16,16,0,0,1,56,40H200A16,16,0,0,1,216,56Z", 0.2], ["M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"]],
     Trash: [["M200,56V208a8,8,0,0,1-8,8H64a8,8,0,0,1-8-8V56Z", 0.2], ["M216,48H176V40a24,24,0,0,0-24-24H104A24,24,0,0,0,80,40v8H40a8,8,0,0,0,0,16h8V208a16,16,0,0,0,16,16H192a16,16,0,0,0,16-16V64h8a8,8,0,0,0,0-16ZM96,40a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96Zm96,168H64V64H192ZM112,104v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Zm48,0v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Z"]],
     X: [["M216,56V200a16,16,0,0,1-16,16H56a16,16,0,0,1-16-16V56A16,16,0,0,1,56,40H200A16,16,0,0,1,216,56Z", 0.2], ["M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"]],
+    EyeSlash: [["M128,56C48,56,16,128,16,128s32,72,112,72,112-72,112-72S208,56,128,56Zm0,112a40,40,0,1,1,40-40A40,40,0,0,1,128,168Z", 0.2], ["M53.92,34.62A8,8,0,1,0,42.08,45.38L61.32,66.55C25,88.84,9.38,123.2,8.69,124.76a8,8,0,0,0,0,6.5c.35.79,8.82,19.57,27.65,38.4C61.43,194.74,93.12,208,128,208a127.11,127.11,0,0,0,52.07-10.83l22,24.21a8,8,0,1,0,11.84-10.76Zm47.33,75.84,41.67,45.85a32,32,0,0,1-41.67-45.85ZM128,192c-30.78,0-57.67-11.19-79.93-33.25A133.16,133.16,0,0,1,25,128c4.69-8.79,19.66-33.39,47.35-49.38l18,19.75a48,48,0,0,0,63.66,70l14.73,16.2A112,112,0,0,1,128,192Zm6-95.43a8,8,0,0,1,3-15.72,48.16,48.16,0,0,1,38.77,42.64,8,8,0,0,1-7.22,8.71,6.39,6.39,0,0,1-.75,0,8,8,0,0,1-8-7.26A32.09,32.09,0,0,0,134,96.57Zm113.28,34.69c-.42.94-10.55,23.37-33.36,43.8a8,8,0,1,1-10.67-11.92A132.77,132.77,0,0,0,231.05,128a133.15,133.15,0,0,0-23.12-30.77C185.67,75.19,158.78,64,128,64a118.37,118.37,0,0,0-19.36,1.57A8,8,0,1,1,106,49.79,134,134,0,0,1,128,48c34.88,0,66.57,13.26,91.66,38.35,18.83,18.83,27.3,37.62,27.65,38.41A8,8,0,0,1,247.31,131.26Z"]],
+    MagnifyingGlass: [["M192,112a80,80,0,1,1-80-80A80,80,0,0,1,192,112Z", 0.2], ["M229.66,218.34,179.6,168.28a88.21,88.21,0,1,0-11.32,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"]],
+    ArrowSquareOut: [["M184,80V208a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V80a8,8,0,0,1,8-8H176A8,8,0,0,1,184,80Z", 0.2], ["M224,104a8,8,0,0,1-16,0V59.32l-66.33,66.34a8,8,0,0,1-11.32-11.32L196.68,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"]],
   };
-
-  // Brand logos: Simple Icons (CC0, https://simpleicons.org); trademarks belong to their owners.
   const LOGOS = {
     docker: ["#2496ED", "M13.983 11.078h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 00.186-.186V3.574a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m0 2.716h2.118a.187.187 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.887c0 .102.082.185.185.186m-2.93 0h2.12a.186.186 0 00.184-.186V6.29a.185.185 0 00-.185-.185H8.1a.185.185 0 00-.185.185v1.887c0 .102.083.185.185.186m-2.964 0h2.119a.186.186 0 00.185-.186V6.29a.185.185 0 00-.185-.185H5.136a.186.186 0 00-.186.185v1.887c0 .102.084.185.186.186m5.893 2.715h2.118a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m-2.93 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.083.185.185.185m-2.964 0h2.119a.185.185 0 00.185-.185V9.006a.185.185 0 00-.184-.186h-2.12a.186.186 0 00-.186.186v1.887c0 .102.084.185.186.185m-2.92 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.082.185.185.185M23.763 9.89c-.065-.051-.672-.51-1.954-.51-.338.001-.676.03-1.01.087-.248-1.7-1.653-2.53-1.716-2.566l-.344-.199-.226.327c-.284.438-.49.922-.612 1.43-.23.97-.09 1.882.403 2.661-.595.332-1.55.413-1.744.42H.751a.751.751 0 00-.75.748 11.376 11.376 0 00.692 4.062c.545 1.428 1.355 2.48 2.41 3.124 1.18.723 3.1 1.137 5.275 1.137.983.003 1.963-.086 2.93-.266a12.248 12.248 0 003.823-1.389c.98-.567 1.86-1.288 2.61-2.136 1.252-1.418 1.998-2.997 2.553-4.4h.221c1.372 0 2.215-.549 2.68-1.009.309-.293.55-.65.707-1.046l.098-.288Z", "Docker"],
     proxmox: ["#E57000", "M4.928 1.825c-1.09.553-1.09.64-.07 1.78 5.655 6.295 7.004 7.782 7.107 7.782.139.017 7.971-8.542 8.058-8.801.034-.07-.208-.312-.519-.536-.415-.312-.864-.433-1.712-.467-1.59-.104-2.144.242-4.115 2.455-.899 1.003-1.66 1.833-1.66 1.833-.017 0-.76-.813-1.642-1.798S8.473 2.1 8.127 1.91c-.796-.45-2.421-.484-3.2-.086zM1.297 4.367C.45 4.695 0 5.007 0 5.248c0 .121 1.331 1.678 2.94 3.459 1.625 1.78 2.939 3.268 2.939 3.302 0 .035-1.331 1.522-2.94 3.303C1.314 17.11.017 18.683.035 18.822c.086.467 1.504 1.055 2.541 1.055 1.678-.018 2.058-.312 5.603-4.202 1.78-1.954 3.233-3.614 3.233-3.666 0-.069-1.435-1.694-3.199-3.63-2.3-2.508-3.423-3.632-3.96-3.874-.812-.398-2.126-.467-2.956-.138zm18.467.12c-.502.26-1.764 1.505-3.943 3.891-1.763 1.937-3.199 3.562-3.199 3.631 0 .07 1.453 1.712 3.234 3.666 3.544 3.89 3.925 4.184 5.602 4.202 1.038 0 2.455-.588 2.542-1.055.017-.156-1.28-1.712-2.905-3.493-1.608-1.78-2.94-3.285-2.94-3.32 0-.034 1.332-1.539 2.94-3.32C22.72 6.91 24.017 5.352 24 5.214c-.087-.45-1.366-.968-2.473-1.038-.795-.034-1.21.035-1.763.312zM7.954 16.973c-2.144 2.369-3.908 4.374-3.943 4.46-.034.07.208.312.52.537.414.311.864.432 1.711.467 1.574.103 2.161-.26 4.15-2.508.864-.968 1.608-1.78 1.625-1.78s.761.812 1.643 1.798c2.023 2.248 2.559 2.576 4.132 2.49.848-.035 1.297-.156 1.712-.467.311-.225.553-.467.519-.536-.087-.26-7.92-8.819-8.058-8.801-.069 0-1.867 1.954-4.011 4.34z", "Proxmox"],
@@ -94,11 +97,12 @@
     mail: ["M3 3H21Q24 3 24 6V18Q24 21 21 21H3Q0 21 0 18V6Q0 3 3 3ZM4 6L12 12L20 6ZM3 9V18H21V9L12 15Z"],
     windows: ["M5 1H19Q23 1 23 5V19Q23 23 19 23H5Q1 23 1 19V5Q1 1 5 1ZM5 4Q4 4 4 5V10.5H10.5V4ZM13.5 4V10.5H20V5Q20 4 19 4ZM4 13.5V19Q4 20 5 20H10.5V13.5ZM13.5 13.5V20H19Q20 20 20 19V13.5Z"],
   };
+
   // Which mark a service gets: "=x" means the image is exactly x; "a-b" matches anywhere; else a word prefix.
   const MARKS = {
     docker: ["docker"], proxmox: ["proxmox", "pve"], jellyfin: ["jellyfin"], sonarr: ["sonarr"], radarr: ["radarr"],
     qbittorrent: ["qbittorrent"], homeassistant: ["homeassistant", "home-assistant", "haos", "hassio"], immich: ["immich"],
-    nextcloud: ["nextcloud"], cloudflare: ["cloudflared", "cloudflare"], redis: ["redis"], nginx: ["nginx"], homarr: ["homarr"],
+    nextcloud: ["nextcloud"], cloudflare: ["cloudflare"], redis: ["redis"], nginx: ["nginx"], homarr: ["homarr"],
     ubuntu: ["ubuntu"], nodedotjs: ["=node"], ethereum: ["lighthouse", "reth", "geth", "nethermind", "besu", "erigon", "prysm", "teku", "lodestar"],
     plex: ["plex"], portainer: ["portainer"], pihole: ["pihole", "pi-hole"], adguard: ["adguard"], tailscale: ["tailscale"],
     prometheus: ["prometheus"], mariadb: ["mariadb"], mongodb: ["mongo"], traefikproxy: ["traefik"], gitea: ["gitea"],
@@ -109,40 +113,18 @@
     fail2ban: ["fail2ban"], mail: ["exim", "postfix", "dovecot"], windows: ["windows"],
   };
 
-  function markFor(image, name) {
-    const base = String(image || "").toLowerCase().split("/").pop().split(":")[0];
-    for (const text of [base, String(name || "").toLowerCase()]) {
-      if (!text) continue;
-      const words = text.split(/[^a-z0-9]+/);
-      for (const [key, aliases] of Object.entries(MARKS)) {
-        if (aliases.some((a) => a[0] === "=" ? text === base && base === a.slice(1)
-          : a.includes("-") ? text.includes(a) : words.some((w) => w.startsWith(a)))) return key;
-      }
-    }
-    return null;
-  }
-
-  // A service's logo, an original glyph, or the generic icon. Decorative: the name always sits next to it.
-  function Mark({ k, fallback }) {
-    if (LOGOS[k]) return h("svg", { viewBox: "0 0 24 24", width: 16, height: 16, className: "hb-icon", "aria-hidden": true,
-      fill: LOGOS[k][0] || "currentColor" }, h("path", { d: LOGOS[k][1] }));
-    if (GLYPHS[k]) return h("svg", { viewBox: "0 0 24 24", width: 16, height: 16, className: "hb-icon", "aria-hidden": true,
-      fill: "currentColor" }, GLYPHS[k].map((d, i) => h("path", { key: i, d })));
-    return h(Icon, { name: fallback });
-  }
-
   const RULE = {
-    read: { label: "read only", icon: "Eye", help: "Hermes can look but never change anything here." },
-    approve: { label: "asks before changes", icon: "ShieldCheck", help: "Changes wait for your OK in chat." },
-    open: { label: "open", icon: "LockSimpleOpen", help: "Changes run without asking. Hermes's own safety checks still apply." },
+    read: { label: "Read only", icon: "Eye", help: "Hermes can look but never change anything here." },
+    approve: { label: "Asks before changes", icon: "ShieldCheck", help: "Changes wait for your OK in chat." },
+    open: { label: "Open", icon: "LockSimpleOpen", help: "Changes run without asking. Hermes's own safety checks still apply." },
   };
   const ACCESS = {
-    owner: { label: "owner", icon: "Crown", help: "Everything, including this setup." },
-    operate: { label: "can operate", icon: "Wrench", help: "Can restart and change things, within each machine's rule." },
-    view: { label: "can view", icon: "Eye", help: "Sees machines, status and logs. Can't change anything." },
+    owner: { label: "Owner", icon: "Crown", help: "Everything, including this setup." },
+    operate: { label: "Can operate", icon: "Wrench", help: "Can restart and change things, within each machine's rule." },
+    view: { label: "Can view", icon: "Eye", help: "Sees machines, status and logs. Can't change anything." },
   };
   const KIND = {
-    docker: { label: "container", icon: "Package" }, systemd: { label: "service", icon: "Gear" },
+    docker: { label: "Container", icon: "Package" }, systemd: { label: "Service", icon: "Gear" },
     vm: { label: "VM", icon: "Cube" }, ct: { label: "LXC", icon: "Package" },
   };
   const PLATFORMS = {
@@ -152,21 +134,10 @@
     email: ["Email", "EnvelopeSimple"], sms: ["SMS", "ChatCircle"], line: ["LINE", "ChatCircle"], irc: ["IRC", "ChatCircle"],
     simplex: ["SimpleX", "ChatCircle"], feishu: ["Feishu", "ChatCircle"], dingtalk: ["DingTalk", "ChatCircle"], wecom: ["WeCom", "ChatCircle"],
   };
-  const EVERY = { off: "off", "15m": "15 min", "30m": "30 min", "1h": "hourly", "6h": "6 hours", daily: "daily" };
+  const EVERY = { off: "Off", "15m": "15 min", "30m": "30 min", "1h": "Hourly", "6h": "6 hours", daily: "Daily" };
   const PER_DAY = { "15m": 96, "30m": 48, "1h": 24, "6h": 4, daily: 1 };
-  const DELIVER = { local: "nowhere, this page only", telegram: "Telegram home chat", discord: "Discord home channel",
+  const DELIVER = { local: "Nowhere, this page only", telegram: "Telegram home chat", discord: "Discord home channel",
     slack: "Slack home channel", signal: "Signal", matrix: "Matrix", mattermost: "Mattermost", whatsapp: "WhatsApp", email: "Email" };
-
-  const down = (s) => s.state !== "running";
-  const ofKind = (list, kinds) => list.filter((s) => kinds.includes(s.kind));
-  const pct = (used, total) => (used == null || !total ? null : Math.min(100, (used / total) * 100));
-  const gb = (v) => (v == null ? "–" : Number(v).toFixed(v < 10 ? 1 : 0));
-  const uptime = (s) => (s == null ? null : s >= 86400 ? Math.floor(s / 86400) + " d" : Math.floor(s / 3600) + " h");
-  const plain = (text) => String(text || "").replace(/`/g, "");
-  const platformOf = (id) => PLATFORMS[id] || [id, "ChatCircle"];
-  const send = (path, method, body) => SDK.fetchJSON(API + path, {
-    method, headers: { "Content-Type": "application/json" }, body: body ? JSON.stringify(body) : undefined });
-
   const AI_INSTRUCTIONS = [
     "You help a homelab owner fill their hostbook: the machines Hermes reaches over SSH.",
     "The input is JSON evidence: machines already added, Proxmox guests not added yet, and other addresses seen in network neighbour tables (with MAC address and which machine saw them).",
@@ -176,6 +147,28 @@
     "Only use addresses that appear in the evidence. Reply with JSON only, no prose:",
     '{"suggestions": [{"address": "...", "alias": "...", "what": "short description", "user": "...", "add": true, "why": "one short sentence"}]}',
   ].join(" ");
+
+  const down = (s) => s.state !== "running";
+  const ofKind = (list, kinds) => list.filter((s) => kinds.includes(s.kind));
+  const pct = (used, total) => (used == null || !total ? null : Math.min(100, (used / total) * 100));
+  const gb = (v) => (v == null ? "–" : Number(v).toFixed(v < 10 ? 1 : 0));
+  const uptime = (s) => (s == null ? null : s >= 86400 ? Math.floor(s / 86400) + " days" : Math.floor(s / 3600) + " hours");
+  const plain = (text) => String(text || "").replace(/`/g, "");
+  const platformOf = (id) => PLATFORMS[id] || [id, "ChatCircle"];
+  const send = (path, method, body) => SDK.fetchJSON(API + path, {
+    method, headers: { "Content-Type": "application/json" }, body: body ? JSON.stringify(body) : undefined });
+
+  // "Hide addresses and IDs" for screen sharing and screenshots; remembered in this browser only.
+  const PRIVACY_KEY = "hostbook.hide-addresses";
+  function readPrivacy() { try { return window.localStorage.getItem(PRIVACY_KEY) === "1"; } catch (_) { return false; } }
+  function writePrivacy(on) { try { window.localStorage.setItem(PRIVACY_KEY, on ? "1" : "0"); } catch (_) { /* private window */ } }
+  const maskValue = (text, hide) => (hide ? "•••" : text);
+
+  function problemText(e) {
+    const text = String((e && e.message) || e);
+    const json = text.match(/\{[\s\S]*\}/);
+    try { return (json && JSON.parse(json[0]).detail) || text; } catch (_) { return text; }
+  }
 
   // One model call through the gateway's llm.oneshot (JSON-RPC over /api/ws), on hostbook's own model task.
   async function askModel(input) {
@@ -199,28 +192,88 @@
     });
   }
 
-  function problemText(e) {
-    const text = String((e && e.message) || e);
-    const json = text.match(/\{[\s\S]*\}/);
-    try { return (json && JSON.parse(json[0]).detail) || text; } catch (_) { return text; }
-  }
+  /* ---------- small parts ---------- */
 
-  function Icon({ name, label }) {
-    return h("svg", { viewBox: "0 0 256 256", width: 16, height: 16, fill: "currentColor", className: "hb-icon",
-      "aria-hidden": label ? undefined : true, role: label ? "img" : undefined, "aria-label": label },
+  function Icon({ name }) {
+    return h("svg", { viewBox: "0 0 256 256", width: 16, height: 16, fill: "currentColor", className: "hb-icon", "aria-hidden": true },
       (ICONS[name] || ICONS.Info).map(([d, opacity], i) => h("path", { key: i, d, opacity })));
   }
 
-  // A word with its icon: "read only", "can view", "Telegram", "connected".
-  function Tag({ icon, children, className }) {
-    return h("span", { className: "hb-tag " + (className || "") }, h(Icon, { name: icon }), children);
+  function markFor(image, name) {
+    const base = String(image || "").toLowerCase().split("/").pop().split(":")[0];
+    for (const text of [base, String(name || "").toLowerCase()]) {
+      if (!text) continue;
+      const words = text.split(/[^a-z0-9]+/);
+      for (const [key, aliases] of Object.entries(MARKS)) {
+        if (aliases.some((a) => a[0] === "=" ? text === base && base === a.slice(1)
+          : a.includes("-") ? text.includes(a) : words.some((w) => w.startsWith(a)))) return key;
+      }
+    }
+    return null;
+  }
+
+  // A service's logo, an original glyph, or the generic icon. Decorative: the name always sits next to it.
+  function Mark({ k, fallback }) {
+    if (LOGOS[k]) return h("svg", { viewBox: "0 0 24 24", width: 16, height: 16, className: "hb-icon", "aria-hidden": true,
+      fill: LOGOS[k][0] || "currentColor" }, h("path", { d: LOGOS[k][1] }));
+    if (GLYPHS[k]) return h("svg", { viewBox: "0 0 24 24", width: 16, height: 16, className: "hb-icon", "aria-hidden": true,
+      fill: "currentColor" }, GLYPHS[k].map((d, i) => h("path", { key: i, d })));
+    return h(Icon, { name: fallback || "Info" });
+  }
+
+  const LABELS = { cpu: "CPU", "disk io": "Disk I/O", pid: "PID" };
+
+  function Tag({ icon, mark, children, className }) {
+    return h("span", { className: "hb-tag " + (className || "") }, mark !== undefined ? mark : h(Icon, { name: icon }), children);
+  }
+
+  // A bordered secondary button for row actions; the dashboard's Button stays for primary submits.
+  function Action({ icon, children, onClick, danger, busy }) {
+    return h("button", { type: "button", className: "hb-btn" + (danger ? " hb-btn-danger" : ""), onClick, "aria-busy": busy || undefined },
+      icon && h(Icon, { name: icon }), children);
+  }
+
+  function RemoveAction({ what, onConfirm }) {
+    const [asking, setAsking] = useState(false);
+    useEffect(() => { if (!asking) return undefined; const t = setTimeout(() => setAsking(false), 4000); return () => clearTimeout(t); }, [asking]);
+    return h(Action, { icon: "Trash", danger: asking, onClick: () => { if (asking) { setAsking(false); onConfirm(); } else setAsking(true); } },
+      asking ? "Confirm remove" : "Remove", h("span", { className: "hb-sr" }, " " + what));
+  }
+
+  function Problem({ text }) {
+    return text ? h("p", { className: "hb-note text-destructive", role: "alert" }, h(Tag, { icon: "WarningCircle" }, plain(text))) : null;
+  }
+
+  function Section({ icon, mark, title, aside, children }) {
+    return h("section", { className: "hb-card" },
+      h("div", { className: "hb-section-head" },
+        h("h2", null, mark || h(Icon, { name: icon }), title),
+        aside && h("div", { className: "hb-section-aside" }, aside)),
+      children);
+  }
+
+  function Field({ label, children, help }) {
+    return h("label", { className: "hb-field" }, h("span", { className: "hb-field-label" }, label), children,
+      help && h("span", { className: "hb-help" }, help));
+  }
+
+  function Choice({ value, onChange, options, label }) {
+    return h("select", { className: "hb-select", value, onChange: (e) => onChange(e.target.value), "aria-label": label },
+      Object.entries(options).map(([k, v]) => h("option", { key: k, value: k }, typeof v === "string" ? v : v.label)));
+  }
+
+  function Table({ columns, rows, empty }) {
+    return h("div", { className: "hb-table-wrap" },
+      h("table", { className: "hb-table" },
+        h("thead", null, h("tr", null, columns.map((c) => h("th", { key: c, scope: "col" }, c)))),
+        h("tbody", null, rows.length ? rows : h("tr", null, h("td", { colSpan: columns.length, className: "hb-muted" }, empty)))));
   }
 
   /* ---------- machines view ---------- */
 
   function running(list) {
     const up = list.filter((s) => !down(s)).length;
-    return (up === list.length ? up : up + "/" + list.length) + " running";
+    return (up === list.length ? up : up + " of " + list.length) + " running";
   }
 
   function troubled(host, alertAt) {
@@ -229,11 +282,12 @@
 
   function Meter({ label, icon, value, detail, alertAt }) {
     const warn = value != null && value >= alertAt;
-    return h("div", { className: warn ? "text-destructive" : "" },
+    return h("div", { className: "hb-meter" + (warn ? " text-destructive" : "") },
       h("div", { className: "hb-meter-head" },
-        h(Tag, { icon, className: warn ? "" : "text-muted-foreground" }, label),
+        h(Tag, { icon, className: warn ? "" : "hb-muted" }, label),
         h("span", null, detail)),
-      h("div", { className: "hb-bar" }, value == null ? null : h("div", { style: { width: value + "%" } })));
+      h("div", { className: "hb-bar", role: "meter", "aria-label": label, "aria-valuenow": value == null ? undefined : Math.round(value),
+        "aria-valuemin": 0, "aria-valuemax": 100 }, value == null ? null : h("div", { style: { width: value + "%" } })));
   }
 
   function Sparkline({ values }) {
@@ -242,49 +296,51 @@
     if (points.length < 2) return null;
     const d = points.map(([i, v], k) => (k ? "L" : "M") + ((i / n) * 100).toFixed(2) + " " + (24 - (Math.min(100, v) / 100) * 24).toFixed(2)).join(" ");
     return h("div", { className: "hb-history" },
-      h("svg", { viewBox: "0 0 100 24", preserveAspectRatio: "none", className: "hb-spark", role: "img", "aria-label": "cpu over the last 24 hours" },
+      h("svg", { viewBox: "0 0 100 24", preserveAspectRatio: "none", className: "hb-spark", role: "img", "aria-label": "CPU over the last 24 hours" },
         h("path", { d, fill: "none", stroke: "currentColor", strokeWidth: 1.25, vectorEffect: "non-scaling-stroke" })),
-      h("div", { className: "hb-axis text-muted-foreground" }, h("span", null, "cpu, 24h ago"), h("span", null, "now")));
+      h("div", { className: "hb-axis hb-muted" }, h("span", null, "CPU, 24 hours ago"), h("span", null, "Now")));
   }
 
-  function ServiceDetails({ host, svc }) {
+  function ServiceRow({ host, svc }) {
     const [state, setState] = useState(null);
-    const [open, setOpen] = useState(false);
+    const open = state !== null;
     function load() {
-      setOpen(true);
       setState({ loading: true });
       SDK.fetchJSON(API + "/details?" + new URLSearchParams({ host, kind: svc.kind, name: svc.name }))
         .then(setState).catch((e) => setState({ error: problemText(e) }));
     }
+    const kind = KIND[svc.kind];
     return h(React.Fragment, null,
-      h("button", { type: "button", className: "hb-link", onClick: open ? () => setOpen(false) : load, "aria-expanded": open },
-        h(Icon, { name: open ? "X" : "Info" }), open ? "hide" : "details"),
-      open && state && h("div", { className: "hb-svc-more" },
-        state.loading ? h("p", { className: "text-muted-foreground" }, "Fetching live details…")
-          : state.error ? h("div", { className: "text-destructive" }, h("div", { className: "font-semibold" }, state.error), plain(state.fix))
-            : h(React.Fragment, null,
+      h("tr", null,
+        h("td", null, h(Tag, { mark: h(Mark, { k: markFor(svc.image, svc.name), fallback: kind.icon }), className: "hb-strong hb-wrap" }, svc.name)),
+        h("td", { className: "hb-muted" }, kind.label),
+        h("td", { className: down(svc) ? "hb-strong text-destructive" : "" }, svc.state),
+        h("td", { className: "hb-muted hb-wrap" }, [svc.detail, svc.image, svc.ports].filter(Boolean).join(" · ")),
+        h("td", { className: "hb-right" }, h(Action, { icon: open ? "X" : "Info", onClick: open ? () => setState(null) : load },
+          open ? "Hide" : "Details"))),
+      open && h("tr", { className: "hb-detail-row" }, h("td", { colSpan: 5 },
+        state.loading ? h("p", { className: "hb-muted" }, "Fetching live details…")
+          : state.error ? h("div", { className: "text-destructive" }, h("div", { className: "hb-strong" }, state.error), plain(state.fix))
+            : h("div", { className: "hb-details-grid" },
               h("dl", { className: "hb-dl" }, state.fields.flatMap(([k, v]) => [
-                h("dt", { key: k + ":t", className: "text-muted-foreground" }, k), h("dd", { key: k + ":d" }, v)])),
-              state.logs.length > 0 && h("pre", { className: "hb-pre hb-logs" }, state.logs.join("\n")),
-              h("p", { className: "hb-note text-muted-foreground" }, "Fetched just now, read-only."))));
+                h("dt", { key: k + ":t" }, LABELS[k] || k[0].toUpperCase() + k.slice(1)), h("dd", { key: k + ":d" }, v)])),
+              state.logs.length > 0 && h("div", null,
+                h("div", { className: "hb-field-label" }, "Latest log lines"),
+                h("pre", { className: "hb-pre hb-logs" }, state.logs.join("\n")))))));
   }
 
   function ServicesDialog({ host, onClose }) {
     const ref = useRef(null);
     useEffect(() => { ref.current && ref.current.showModal(); }, []);
     const list = host.services.slice().sort((a, b) => down(b) - down(a) || a.name.localeCompare(b.name));
-    return h("dialog", { ref, className: "hb-dialog", onClose, "aria-label": "Everything on " + host.name },
+    return h("dialog", { ref, className: "hb-dialog", onClose, "aria-label": "Services on " + host.name },
       h("div", { className: "hb-dialog-head" },
-        h("h2", { className: "font-semibold" }, h(Icon, { name: "Stack" }), "everything on " + host.name),
-        h("button", { type: "button", className: "hb-link", onClick: () => ref.current.close(), "aria-label": "Close" }, h(Icon, { name: "X" }))),
-      h("ul", { className: "hb-svc-list" }, list.map((s) =>
-        h("li", { key: s.kind + ":" + s.name },
-          h("div", { className: "hb-svc-row" },
-            h("span", { className: "hb-tag hb-name font-semibold" }, h(Mark, { k: markFor(s.image, s.name), fallback: KIND[s.kind].icon }), s.name),
-            h("span", { className: down(s) ? "font-semibold text-destructive" : "text-muted-foreground" }, KIND[s.kind].label + ", " + s.state)),
-          h("div", { className: "hb-svc-sub text-muted-foreground" },
-            [s.detail, s.image, s.ports].filter(Boolean).join(" · ")),
-          h(ServiceDetails, { host: host.name, svc: s })))));
+        h("div", null,
+          h("h2", null, h(Icon, { name: "Stack" }), host.name),
+          h("p", { className: "hb-muted" }, list.length + " services · " + list.filter(down).length + " not running · details are fetched live and read-only")),
+        h(Action, { icon: "X", onClick: () => ref.current.close() }, "Close")),
+      h(Table, { columns: ["Service", "Type", "State", "Status", ""], empty: "Nothing found on this machine.",
+        rows: list.map((s) => h(ServiceRow, { key: s.kind + ":" + s.name, host: host.name, svc: s })) }));
   }
 
   function HostCard({ host, alertAt, onOpen }) {
@@ -293,107 +349,74 @@
     const containers = ofKind(host.services, ["docker"]);
     const units = ofKind(host.services, ["systemd"]);
     const stopped = host.services.filter(down);
-    const icon = guests.length ? "HardDrives" : /VM/.test(host.runs_on || "") ? "Cube" : /LXC/.test(host.runs_on || "") ? "Package" : "HardDrive";
-    const rows = [
-      ["on", host.runs_on],
-      ["guests", guests.length ? running(guests) : null],
-      ["containers", containers.length ? running(containers) : null],
-      ["services", units.length ? running(units) : null],
-      ["not running", stopped.map((s) => s.name + " (" + KIND[s.kind].label + ")").join(", ")],
-      ["os", f.os],
-      ["up", uptime(f.uptime_s)],
-      [host.error ? "last good scan" : "scanned", host.scanned_at ? SDK.utils.isoTimeAgo(host.scanned_at) : null],
-    ].filter((r) => r[1]);
+    const icon = /VM/.test(host.runs_on || "") ? "Cube" : /LXC/.test(host.runs_on || "") ? "Package" : "HardDrive";
     const rule = RULE[host.policy] || RULE.approve;
+    const osMark = markFor(null, f.os);
+    const rows = [
+      ["Runs on", host.runs_on],
+      ["Guests", guests.length ? running(guests) : null],
+      ["Containers", containers.length ? running(containers) : null],
+      ["Services", units.length ? running(units) : null],
+      ["Not running", stopped.map((s) => s.name + " (" + KIND[s.kind].label.toLowerCase() + ")").join(", ")],
+      ["OS", f.os && (osMark ? h(Tag, { mark: h(Mark, { k: osMark }) }, f.os) : f.os)],
+      ["Uptime", uptime(f.uptime_s)],
+      [host.error ? "Last good scan" : "Scanned", host.scanned_at ? SDK.utils.isoTimeAgo(host.scanned_at) : null],
+    ].filter((r) => r[1]);
 
     return h("section", { className: "hb-card hb-host" + (host.error ? " hb-stale" : "") },
-      h("div", { className: "hb-card-head" },
-        h("h2", { className: "font-semibold" }, guests.length ? h(Mark, { k: "proxmox" }) : h(Mark, { k: markFor(null, host.name), fallback: icon }), host.name),
-        h(Tag, { icon: rule.icon, className: "text-muted-foreground" }, rule.label)),
-      host.error && h("div", { className: "hb-note text-destructive" },
-        h(Tag, { icon: "WarningCircle", className: "font-semibold" }, host.error),
+      h("div", { className: "hb-section-head" },
+        h("h2", null, guests.length ? h(Mark, { k: "proxmox" }) : h(Mark, { k: markFor(null, host.name), fallback: icon }), host.name),
+        h(Tag, { icon: rule.icon, className: "hb-muted" }, rule.label)),
+      host.error && h("div", { className: "hb-callout text-destructive", role: "status" },
+        h(Tag, { icon: "WarningCircle", className: "hb-strong" }, host.error[0].toUpperCase() + host.error.slice(1)),
         host.fix && h("div", null, plain(host.fix))),
-      host.warnings.map((w) => h("p", { key: w, className: "hb-note text-muted-foreground" }, w)),
+      host.warnings.map((w) => h("p", { key: w, className: "hb-note hb-muted" }, w[0].toUpperCase() + w.slice(1))),
       !host.scanned_at
-        ? !host.error && h("p", { className: "hb-note text-muted-foreground" }, "Not scanned yet. Check it from setup, or ask Hermes.")
+        ? !host.error && h("p", { className: "hb-note hb-muted" }, "Not scanned yet. Check it from Setup, or ask Hermes.")
         : h(React.Fragment, null,
           f.cores != null && h("div", { className: "hb-meters" },
-            h(Meter, { label: "cpu", icon: "Cpu", value: pct(f.load1, f.cores), alertAt: 101,
+            h(Meter, { label: "CPU", icon: "Cpu", value: pct(f.load1, f.cores), alertAt: 101,
               detail: (f.load1 == null ? "–" : Number(f.load1).toFixed(2)) + " load on " + f.cores + " cores" }),
-            h(Meter, { label: "memory", icon: "Memory", value: pct(f.mem_used_gb, f.mem_total_gb), alertAt: 101,
+            h(Meter, { label: "Memory", icon: "Memory", value: pct(f.mem_used_gb, f.mem_total_gb), alertAt: 101,
               detail: gb(f.mem_used_gb) + " / " + gb(f.mem_total_gb) + " GB" }),
-            h(Meter, { label: "disk", icon: "Database", value: f.disk_pct != null ? f.disk_pct : pct(f.disk_used_gb, f.disk_total_gb), alertAt,
+            h(Meter, { label: "Disk", icon: "Database", value: f.disk_pct != null ? f.disk_pct : pct(f.disk_used_gb, f.disk_total_gb), alertAt,
               detail: gb(f.disk_used_gb) + " / " + gb(f.disk_total_gb) + " GB" })),
           h(Sparkline, { values: host.history || [] }),
           h("dl", { className: "hb-dl" }, rows.flatMap(([k, v]) => [
-            h("dt", { key: k + ":t", className: "text-muted-foreground" }, k),
-            h("dd", { key: k + ":d", className: k === "not running" ? "font-semibold" : "" },
-              k === "os" && markFor(null, v) ? h("span", { className: "hb-tag" }, h(Mark, { k: markFor(null, v) }), v) : v),
+            h("dt", { key: k + ":t" }, k),
+            h("dd", { key: k + ":d", className: k === "Not running" ? "hb-strong text-destructive" : "" }, v),
           ]))),
       host.services.length > 0 && h("div", { className: "hb-card-foot" },
-        h("button", { type: "button", className: "hb-link", onClick: () => onOpen(host) },
-          h(Icon, { name: "Stack" }), "see all " + host.services.length + ", with details")));
+        h(Action, { icon: "Stack", onClick: () => onOpen(host) }, "View all " + host.services.length + " services")));
   }
 
-  function HostsView({ data }) {
-    const [dialogHost, setDialogHost] = useState(null);
+  function MachinesView({ data, openHost, setOpenHost }) {
     const alertAt = data.settings.disk_alert;
     const hosts = data.hosts.slice().sort((a, b) => troubled(b, alertAt) - troubled(a, alertAt) || a.name.localeCompare(b.name));
     const all = hosts.flatMap((x) => x.services);
-    const latest = hosts.map((x) => x.scanned_at).filter(Boolean).sort().pop();
-    const every = data.settings.scan_every;
     const tiles = [
-      [hosts.length, "machines", "HardDrives"],
-      [ofKind(all, ["docker"]).length, "containers", "Package"],
-      [ofKind(all, ["systemd"]).length, "services", "Gear"],
-      [all.filter(down).length, "not running", "Warning"],
+      [hosts.length, "Machines", h(Icon, { name: "HardDrives" })],
+      [ofKind(all, ["docker"]).length, "Containers", h(Mark, { k: "docker" })],
+      [ofKind(all, ["systemd"]).length, "Services", h(Icon, { name: "Gear" })],
+      [all.filter(down).length, "Not running", h(Icon, { name: "Warning" })],
     ];
+    const dialogHost = hosts.find((x) => x.name === openHost);
     return h(React.Fragment, null,
-      h("p", { className: "hb-status text-muted-foreground" },
-        h(Tag, { icon: "Clock" }, (latest ? "last scan " + SDK.utils.isoTimeAgo(latest) : "not scanned yet") + " · " +
-          (every === "off" ? "scheduled scans off" : "scans every " + EVERY[every]))),
       h("div", { className: "hb-tiles" }, tiles.map(([value, label, icon]) =>
         h("div", { key: label, className: "hb-tile" },
-          h("div", { className: "hb-tile-icon text-muted-foreground" }, label === "containers" ? h(Mark, { k: "docker" }) : h(Icon, { name: icon })),
-          h("div", { className: "hb-tile-num" + (label === "not running" && value ? " text-destructive" : "") }, value),
-          h("div", { className: "hb-tile-label text-muted-foreground" }, label)))),
-      h("div", { className: "hb-cards" }, hosts.map((host) => h(HostCard, { key: host.name, host, alertAt, onOpen: setDialogHost }))),
-      dialogHost && h(ServicesDialog, { host: dialogHost, onClose: () => setDialogHost(null) }),
-      h("p", { className: "hb-foot text-muted-foreground" },
+          h("div", { className: "hb-tile-head" }, h("span", { className: "hb-muted" }, label), h("span", { className: "hb-muted" }, icon)),
+          h("div", { className: "hb-tile-num" + (label === "Not running" && value ? " text-destructive" : "") }, value)))),
+      h("div", { className: "hb-cards" }, hosts.map((host) => h(HostCard, { key: host.name, host, alertAt, onOpen: (x) => setOpenHost(x.name) }))),
+      dialogHost && h(ServicesDialog, { host: dialogHost, onClose: () => setOpenHost(null) }),
+      h("p", { className: "hb-foot hb-muted" },
         "Numbers come from hostbook's last read-only scan of each machine over SSH: Docker, systemd and Proxmox. " +
-        "cpu is the 1-minute load average against core count. Changes go through Hermes chat, where each " +
+        "CPU is the 1-minute load average against core count. Changes go through Hermes chat, where each " +
         "machine's rule and the person's access apply."));
   }
 
   /* ---------- setup view ---------- */
 
-  function RemoveButton({ what, onConfirm }) {
-    const [asking, setAsking] = useState(false);
-    useEffect(() => { if (!asking) return undefined; const t = setTimeout(() => setAsking(false), 4000); return () => clearTimeout(t); }, [asking]);
-    return h("button", { type: "button", className: "hb-link " + (asking ? "text-destructive" : "hb-quiet"),
-      onClick: () => { if (asking) { setAsking(false); onConfirm(); } else setAsking(true); } },
-      h(Icon, { name: "Trash" }), asking ? "confirm: remove " + what : "remove");
-  }
-
-  function Field({ label, children, help }) {
-    return h("label", { className: "hb-field" }, h("span", { className: "text-muted-foreground" }, label), children,
-      help && h("span", { className: "hb-help text-muted-foreground" }, help));
-  }
-
-  function Choice({ value, onChange, options, label }) {
-    return h("select", { className: "hb-select", value, onChange: (e) => onChange(e.target.value), "aria-label": label },
-      Object.entries(options).map(([k, v]) => h("option", { key: k, value: k }, typeof v === "string" ? v : v.label)));
-  }
-
-  function Problem({ text }) {
-    return text ? h("p", { className: "hb-note text-destructive", role: "alert" }, h(Tag, { icon: "WarningCircle" }, plain(text))) : null;
-  }
-
-  function SectionHead({ icon, title, children }) {
-    return h("div", { className: "hb-section-head" }, h("h2", { className: "font-semibold" }, h(Icon, { name: icon }), title), children);
-  }
-
-  function SetupView({ onChanged }) {
+  function SetupView({ onChanged, hide }) {
     const [s, setS] = useState(null);
     const [busy, setBusy] = useState(null);
     const [problems, setProblems] = useState({});
@@ -403,47 +426,15 @@
     const [person, setPerson] = useState({ platform: "telegram", id: "", name: "", role: "owner", hosts: "" });
     const [found, setFound] = useState(null);
     const [ai, setAi] = useState(null);
-
-    function askForHelp() {
-      if (busy) return;
-      setBusy("ai");
-      setProblems((p) => ({ ...p, ai: null }));
-      send("/discover/evidence", "POST").then((ev) => askModel(JSON.stringify(ev)).then((text) => {
-        const json = text.slice(text.indexOf("{"), text.lastIndexOf("}") + 1);
-        const seen = new Set([...ev.proxmox_guests_not_added.map((o) => o.address), ...ev.other_addresses.map((o) => o.address)]);
-        // Keep only addresses that were in the evidence: the model must not invent machines.
-        const list = (JSON.parse(json).suggestions || []).filter((x) => x && seen.has(x.address));
-        setAi({ add: list.filter((x) => x.add), skip: list.filter((x) => !x.add), checked: seen.size });
-      })).catch((e) => setProblems((p) => ({ ...p, ai: e instanceof SyntaxError ? "The model's answer wasn't readable. Try again." : problemText(e) })))
-        .finally(() => setBusy(null));
-    }
-
-    function addSuggestion(x) {
-      act("offer:" + x.alias, "/machines", "POST", { alias: x.alias, target: (offerUser[x.alias] || x.user || "root") + "@" + x.address, rule: "approve" })
-        .then((ok) => ok && setAi((a) => ({ ...a, add: a.add.filter((y) => y.alias !== x.alias) })));
-    }
     const [offerUser, setOfferUser] = useState({});
-
-    function lookForGuests() {
-      if (busy) return;
-      setBusy("discover");
-      send("/discover", "POST").then(setFound).catch((e) => setProblems((p) => ({ ...p, discover: problemText(e) })))
-        .finally(() => setBusy(null));
-    }
-
-    function addOffer(o) {
-      act("offer:" + o.alias, "/machines", "POST", { alias: o.alias, target: (offerUser[o.alias] || o.user) + "@" + o.address, rule: "approve" })
-        .then((ok) => ok && setFound((f) => ({ ...f, offers: f.offers.filter((x) => x.alias !== o.alias) })));
-    }
 
     useEffect(() => {
       SDK.fetchJSON(API + "/setup").then((d) => {
-        setS(d); setSched(pickSched(d.settings));
+        setS(d);
+        setSched({ every: d.settings.scan_every, deliver: d.settings.deliver, disk_alert: d.settings.disk_alert });
         if (d.people.length) setPerson((p) => ({ ...p, role: "view" }));
       }).catch((e) => setProblems({ load: problemText(e) }));
     }, []);
-
-    function pickSched(st) { return { every: st.scan_every, deliver: st.deliver, disk_alert: st.disk_alert }; }
 
     function act(key, path, method, body) {
       if (busy) return Promise.resolve(false);
@@ -455,201 +446,252 @@
         .finally(() => setBusy(null));
     }
 
-    if (problems.load) return h(Problem, { text: "Couldn't load the setup: " + problems.load });
-    if (!s) return h("p", { className: "text-muted-foreground" }, "Loading setup…");
+    function findOnProxmox() {
+      if (busy) return;
+      setBusy("discover");
+      setProblems((p) => ({ ...p, discover: null }));
+      send("/discover", "POST").then(setFound).catch((e) => setProblems((p) => ({ ...p, discover: problemText(e) })))
+        .finally(() => setBusy(null));
+    }
 
-    const scheduledCount = s.machines.filter((m) => m.scheduled).length;
-    const aliases = s.machines.map((m) => m.alias);
+    function askForHelp() {
+      if (busy) return;
+      setBusy("ai");
+      setProblems((p) => ({ ...p, discover: null }));
+      send("/discover/evidence", "POST").then((ev) => askModel(JSON.stringify(ev)).then((text) => {
+        const json = text.slice(text.indexOf("{"), text.lastIndexOf("}") + 1);
+        const seen = new Set([...ev.proxmox_guests_not_added.map((o) => o.address), ...ev.other_addresses.map((o) => o.address)]);
+        // Keep only addresses that were in the evidence: the model must not invent machines.
+        const list = (JSON.parse(json).suggestions || []).filter((x) => x && seen.has(x.address));
+        setAi({ add: list.filter((x) => x.add), skip: list.filter((x) => !x.add), checked: seen.size });
+      })).catch((e) => setProblems((p) => ({ ...p, discover: e instanceof SyntaxError ? "The model's answer wasn't readable. Try again." : problemText(e) })))
+        .finally(() => setBusy(null));
+    }
 
-    const machines = h("section", { className: "hb-card hb-setup" },
-      h(SectionHead, { icon: "HardDrives", title: "machines" }),
-      s.machines.length === 0 && h("p", { className: "hb-note text-muted-foreground" },
-        "Nothing connects until you add a machine. Adding one checks the connection right away with a read-only scan."),
-      s.machines.map((m) => h("div", { key: m.alias, className: "hb-mrow" },
-        h("div", null,
-          h("div", { className: "font-semibold" }, m.alias),
-          h("div", { className: "text-muted-foreground hb-name" }, m.target + (m.jump ? " via " + m.jump : ""))),
-        h("div", null,
-          h(Choice, { label: "rule for " + m.alias, value: m.rule, options: RULE,
-            onChange: (rule) => act("machines:" + m.alias, "/machines/" + m.alias, "POST", { rule }) }),
-          h("div", { className: "hb-help text-muted-foreground" }, RULE[m.rule].help)),
-        h("label", { className: "hb-check" },
-          h("input", { type: "checkbox", checked: m.scheduled, "aria-label": "include " + m.alias + " in scheduled scans",
-            onChange: (e) => act("machines:" + m.alias, "/machines/" + m.alias, "POST", { scheduled: e.target.checked }) }),
-          "in scheduled scans"),
-        h("div", null,
-          busy === "check:" + m.alias ? h(Tag, { icon: "ArrowClockwise", className: "text-muted-foreground" }, "Checking…")
-            : h(Tag, { icon: m.ok ? "CheckCircle" : "WarningCircle", className: m.ok ? "" : "text-destructive" }, plain(m.status)),
-          h("div", { className: "hb-actions" },
-            h("button", { type: "button", className: "hb-link", onClick: () => act("check:" + m.alias, "/machines/" + m.alias + "/check", "POST") },
-              h(Icon, { name: "ArrowClockwise" }), "check again"),
-            h(RemoveButton, { what: m.alias + " and its scan data", onConfirm: () => act("machines:" + m.alias, "/machines/" + m.alias, "DELETE") }))))),
-      h(Problem, { text: problems.machines || problems.check }),
-      h("div", { className: "hb-discover" },
-        h("button", { type: "button", className: "hb-link", onClick: lookForGuests },
-          h(Mark, { k: "proxmox" }), busy === "discover" ? "Asking your Proxmox nodes…" : "find more machines on Proxmox"),
-        h("button", { type: "button", className: "hb-link", onClick: askForHelp },
-          h(Icon, { name: "ChatCircle" }), busy === "ai" ? "Gathering clues and asking the model…" : "get AI help finding machines"),
-        !ai && h("p", { className: "hb-help text-muted-foreground" },
-          "AI help reads the network neighbour tables of Hermes's host and your machines, plus Proxmox, and asks your current model which addresses are worth adding. Nothing is added until you click."),
-        ai && h("div", { className: "hb-offers" },
-          h("p", { className: "text-muted-foreground" }, ai.add.length
-            ? "The model looked at " + ai.checked + " addresses and suggests:" : "The model looked at " + ai.checked + " addresses and found nothing new worth adding."),
-          ai.add.map((x) => h("div", { key: x.address, className: "hb-offer" },
-            h("span", { className: "hb-tag font-semibold" }, h(Mark, { k: [markFor(null, x.alias), markFor(null, x.what)].find((k) => k && k !== "proxmox"), fallback: "HardDrive" }), x.alias),
-            h("span", null, h("span", null, x.what + " · " + x.address), h("span", { className: "hb-help text-muted-foreground" }, x.why)),
-            h(Input, { value: offerUser[x.alias] != null ? offerUser[x.alias] : x.user || "root", "aria-label": "user for " + x.alias,
-              onChange: (e) => setOfferUser({ ...offerUser, [x.alias]: e.target.value.trim() }) }),
-            h("button", { type: "button", className: "hb-link", onClick: () => addSuggestion(x) },
-              h(Icon, { name: "Plus" }), busy === "offer:" + x.alias ? "Checking…" : "add and check"))),
-          ai.skip.length > 0 && h("details", { className: "hb-details" },
-            h("summary", { className: "text-muted-foreground" }, "also on your network, not worth adding (" + ai.skip.length + ")"),
-            h("ul", { className: "hb-plain" }, ai.skip.map((x) => h("li", { key: x.address }, x.address + ": " + x.what))))),
-        h(Problem, { text: problems.ai }),
-        found && (found.nodes.length === 0
-          ? h("p", { className: "hb-note text-muted-foreground" }, "No Proxmox node in the hostbook yet. Add one and hostbook can offer its VMs and containers.")
-          : found.offers.length === 0
-            ? h("p", { className: "hb-note text-muted-foreground" }, h(Tag, { icon: "CheckCircle" }, "Every running guest on " + found.nodes.join(", ") + " is already here."))
-            : h("div", { className: "hb-offers" },
-              h("p", { className: "text-muted-foreground" }, "Running on " + found.nodes.join(", ") + " and not in the hostbook yet. Check the user, then add:"),
-              found.offers.map((o) => h("div", { key: o.alias, className: "hb-offer" },
-                h("span", { className: "hb-tag font-semibold" }, h(Mark, { k: markFor(null, o.name), fallback: o.kind === "vm" ? "Cube" : "Package" }), o.alias),
-                h("span", { className: "text-muted-foreground" }, (o.kind === "vm" ? "VM " : "LXC ") + o.id + " on " + o.node + " · " + o.address),
-                h(Input, { value: offerUser[o.alias] != null ? offerUser[o.alias] : o.user, "aria-label": "user for " + o.alias,
-                  onChange: (e) => setOfferUser({ ...offerUser, [o.alias]: e.target.value.trim() }) }),
-                h("button", { type: "button", className: "hb-link", onClick: () => addOffer(o) },
-                  h(Icon, { name: "Plus" }), busy === "offer:" + o.alias ? "Checking…" : "add and check"))))),
-        found && found.problems.map((p) => h(Problem, { key: p, text: p })),
-        h(Problem, { text: problems.discover || problems.offer })),
-      h("form", { className: "hb-form", onSubmit: (e) => {
-        e.preventDefault();
-        act("add", "/machines", "POST", form).then((ok) => ok && setForm({ alias: "", target: "", key: "", jump: "", rule: "approve" }));
-      } },
-        h(Field, { label: "name" }, h(Input, { value: form.alias, placeholder: "nas", required: true,
-          onChange: (e) => setForm({ ...form, alias: e.target.value.toLowerCase() }) })),
-        h(Field, { label: "user@address" }, h(Input, { value: form.target, placeholder: "root@192.168.1.20", required: true,
-          onChange: (e) => setForm({ ...form, target: e.target.value }) })),
-        h(Field, { label: "key file, optional" }, h(Input, { value: form.key, placeholder: "/home/you/.ssh/id_ed25519",
-          onChange: (e) => setForm({ ...form, key: e.target.value }) })),
-        aliases.length > 0 && h(Field, { label: "through, optional" }, h(Choice, { label: "jump host", value: form.jump,
-          options: Object.fromEntries([["", "direct"], ...aliases.map((a) => [a, a])]), onChange: (jump) => setForm({ ...form, jump }) })),
-        h(Field, { label: "rule", help: RULE[form.rule].help },
-          h(Choice, { label: "rule", value: form.rule, options: RULE, onChange: (rule) => setForm({ ...form, rule }) })),
-        h(Button, { type: "submit" }, busy === "add" ? "Checking…" : "Add and check")),
-      h(Problem, { text: problems.add }));
+    function addOffer(o, fromAi) {
+      act("offer:" + o.alias, "/machines", "POST", { alias: o.alias, target: (offerUser[o.alias] || o.user || "root") + "@" + o.address, rule: "approve" })
+        .then((ok) => {
+          if (!ok) return;
+          if (fromAi) setAi((a) => ({ ...a, add: a.add.filter((y) => y.alias !== o.alias) }));
+          else setFound((f) => ({ ...f, offers: f.offers.filter((x) => x.alias !== o.alias) }));
+        });
+    }
 
-    const perDay = (PER_DAY[sched.every] || 0) * scheduledCount;
-    const schedule = h("section", { className: "hb-card hb-setup" },
-      h(SectionHead, { icon: "Clock", title: "scheduled scans" }),
-      h("div", { className: "hb-radios", role: "radiogroup", "aria-label": "how often" }, Object.entries(EVERY).map(([k, v]) =>
-        h("label", { key: k },
-          h("input", { type: "radio", name: "hb-every", checked: sched.every === k, onChange: () => { setSaved(false); setSched({ ...sched, every: k }); } }),
-          v))),
-      h("p", { className: "hb-note text-muted-foreground" }, sched.every === "off"
-        ? "No scheduled scans. Machines are scanned only when you or Hermes ask."
-        : perDay + " read-only scans a day across " + scheduledCount + (scheduledCount === 1 ? " machine" : " machines") +
-          ". They run without the AI, so they cost no tokens."),
-      h("div", { className: "hb-form" },
-        h(Field, { label: "send alerts to" }, h(Choice, { label: "send alerts to", value: sched.deliver, options: DELIVER,
-          onChange: (deliver) => { setSaved(false); setSched({ ...sched, deliver }); } })),
-        h(Field, { label: "alert when a disk passes (%)" }, h(Input, { type: "number", min: 50, max: 99, value: sched.disk_alert,
-          onChange: (e) => { setSaved(false); setSched({ ...sched, disk_alert: e.target.value }); } })),
-        h(Button, { onClick: () => act("schedule", "/schedule", "POST", sched).then((ok) => setSaved(ok)) },
-          busy === "schedule" ? "Saving…" : "Save schedule")),
-      saved && h("p", { className: "hb-note" }, h(Tag, { icon: "CheckCircle" }, s.settings.scan_every === "off"
-        ? "Saved. Scheduled scans are off." : "Saved. Hermes's cron job hostbook-scan now scans every " + EVERY[s.settings.scan_every] + ".")),
-      h(Problem, { text: problems.schedule }),
-      h("p", { className: "hb-note text-muted-foreground" }, h(Tag, { icon: "Bell" },
-        "Alerts fire on changes only: a service stops or comes back, a disk crosses the line, a machine stops answering or answers again.")),
-      h("details", { className: "hb-details" },
-        h("summary", { className: "text-muted-foreground" }, "what a scan runs on each machine"),
-        h("pre", { className: "hb-pre" }, s.scan_script)));
-
-    // Change someone's access in place: the same add route, keyed by their platform and id.
     function updatePerson(p, change) {
       act("people:" + p.key, "/people", "POST", { platform: p.platform, id: p.id, name: p.name, role: p.role,
         hosts: (p.hosts || []).join(", "), ...change });
     }
 
+    if (problems.load) return h(Problem, { text: "Couldn't load the setup: " + problems.load });
+    if (!s) return h("p", { className: "hb-muted" }, "Loading setup…");
+
+    const aliases = s.machines.map((m) => m.alias);
+    const scheduledCount = s.machines.filter((m) => m.scheduled).length;
+    const userInput = (o) => h(Input, { value: offerUser[o.alias] != null ? offerUser[o.alias] : o.user || "root", "aria-label": "SSH user for " + o.alias,
+      className: "hb-input-sm", onChange: (e) => setOfferUser({ ...offerUser, [o.alias]: e.target.value.trim() }) });
+
+    const machines = h(Section, { icon: "HardDrives", title: "Machines",
+      aside: h("span", { className: "hb-muted" }, s.machines.length + (s.machines.length === 1 ? " machine" : " machines")) },
+      s.machines.length === 0 && h("p", { className: "hb-note hb-muted" },
+        "Nothing connects until you add a machine. Adding one checks the connection right away with a read-only scan."),
+      s.machines.length > 0 && h(Table, { columns: ["Machine", "Connects as", "Rule", "Scheduled scans", "Last check", ""], empty: "",
+        rows: s.machines.map((m) => h("tr", { key: m.alias },
+          h("td", { className: "hb-strong" }, m.alias),
+          h("td", { className: "hb-muted hb-wrap" }, maskValue(m.target, hide) + (m.jump ? " via " + m.jump : "")),
+          h("td", null, h(Choice, { label: "Rule for " + m.alias, value: m.rule, options: RULE,
+            onChange: (rule) => act("machines:" + m.alias, "/machines/" + m.alias, "POST", { rule }) }),
+          h("div", { className: "hb-help" }, RULE[m.rule].help)),
+          h("td", null, h("label", { className: "hb-check" },
+            h("input", { type: "checkbox", checked: m.scheduled, "aria-label": "Include " + m.alias + " in scheduled scans",
+              onChange: (e) => act("machines:" + m.alias, "/machines/" + m.alias, "POST", { scheduled: e.target.checked }) }),
+            m.scheduled ? "Included" : "Skipped")),
+          h("td", { className: "hb-wrap" }, busy === "check:" + m.alias ? h(Tag, { icon: "ArrowClockwise", className: "hb-muted" }, "Checking…")
+            : h(Tag, { icon: m.ok ? "CheckCircle" : "WarningCircle", className: m.ok ? "" : "text-destructive" },
+              plain(m.status)[0].toUpperCase() + plain(m.status).slice(1))),
+          h("td", { className: "hb-right" }, h("div", { className: "hb-actions" },
+            h(Action, { icon: "ArrowClockwise", onClick: () => act("check:" + m.alias, "/machines/" + m.alias + "/check", "POST") }, "Check"),
+            h(RemoveAction, { what: m.alias, onConfirm: () => act("machines:" + m.alias, "/machines/" + m.alias, "DELETE") }))))) }),
+      h(Problem, { text: problems.machines || problems.check }));
+
+    const addMachine = h(Section, { icon: "Plus", title: "Add a machine" },
+      h("form", { className: "hb-form", onSubmit: (e) => {
+        e.preventDefault();
+        act("add", "/machines", "POST", form).then((ok) => ok && setForm({ alias: "", target: "", key: "", jump: "", rule: "approve" }));
+      } },
+        h(Field, { label: "Name" }, h(Input, { value: form.alias, placeholder: "nas", required: true,
+          onChange: (e) => setForm({ ...form, alias: e.target.value.toLowerCase() }) })),
+        h(Field, { label: "User and address" }, h(Input, { value: form.target, placeholder: "root@192.168.1.20", required: true,
+          onChange: (e) => setForm({ ...form, target: e.target.value }) })),
+        h(Field, { label: "Key file (optional)" }, h(Input, { value: form.key, placeholder: "/home/you/.ssh/id_ed25519",
+          onChange: (e) => setForm({ ...form, key: e.target.value }) })),
+        aliases.length > 0 && h(Field, { label: "Connect through (optional)" }, h(Choice, { label: "Jump host", value: form.jump,
+          options: Object.fromEntries([["", "Direct"], ...aliases.map((a) => [a, a])]), onChange: (jump) => setForm({ ...form, jump }) })),
+        h(Field, { label: "Rule", help: RULE[form.rule].help },
+          h(Choice, { label: "Rule", value: form.rule, options: RULE, onChange: (rule) => setForm({ ...form, rule }) })),
+        h("div", { className: "hb-form-actions" },
+          h(Button, { type: "submit" }, busy === "add" ? "Checking…" : "Add and check"),
+          h("span", { className: "hb-help" }, "The machine Hermes runs on needs SSH key access to it (ssh-copy-id)."))),
+      h(Problem, { text: problems.add }));
+
+    const offerRows = (list, fromAi) => list.map((o) => h("tr", { key: o.alias },
+      h("td", null, h(Tag, { mark: h(Mark, { k: [markFor(null, o.alias), markFor(null, o.what || o.name)].find((k) => k && k !== "proxmox"),
+        fallback: o.kind === "vm" ? "Cube" : o.kind === "ct" ? "Package" : "HardDrive" }), className: "hb-strong" }, o.alias)),
+      h("td", { className: "hb-muted hb-wrap" }, fromAi ? o.what : (o.kind === "vm" ? "VM " : "LXC ") + o.id + " on " + o.node,
+        fromAi && o.why && h("div", { className: "hb-help" }, o.why)),
+      h("td", { className: "hb-muted" }, maskValue(o.address, hide)),
+      h("td", null, userInput(o)),
+      h("td", { className: "hb-right" }, h(Action, { icon: "Plus", onClick: () => addOffer(o, fromAi) },
+        busy === "offer:" + o.alias ? "Checking…" : "Add and check"))));
+
+    const discover = h(Section, { icon: "MagnifyingGlass", title: "Find machines",
+      aside: h("div", { className: "hb-actions" },
+        h(Action, { icon: undefined, onClick: findOnProxmox }, h(Mark, { k: "proxmox" }), busy === "discover" ? "Asking Proxmox…" : "Find on Proxmox"),
+        h(Action, { icon: "ChatCircle", onClick: askForHelp }, busy === "ai" ? "Asking the model…" : "Get AI help")) },
+      !found && !ai && h("p", { className: "hb-note hb-muted" },
+        "Find on Proxmox lists running VMs and containers on Proxmox nodes you've added. Get AI help also reads the network " +
+        "neighbour tables of Hermes's host and your machines and asks your current model which addresses are worth adding. " +
+        "Both are read-only, and nothing is added until you click."),
+      found && (found.nodes.length === 0
+        ? h("p", { className: "hb-note hb-muted" }, "No Proxmox node is in the hostbook yet. Add one and hostbook can offer its VMs and containers.")
+        : found.offers.length === 0
+          ? h("p", { className: "hb-note" }, h(Tag, { icon: "CheckCircle" }, "Every running guest on " + found.nodes.join(", ") + " is already here."))
+          : h(Table, { columns: ["Machine", "Found as", "Address", "SSH user", ""], empty: "", rows: offerRows(found.offers, false) })),
+      found && found.problems.map((p) => h(Problem, { key: p, text: p })),
+      ai && h(React.Fragment, null,
+        h("p", { className: "hb-note hb-muted" }, "The model looked at " + ai.checked + " addresses" +
+          (ai.add.length ? " and suggests:" : " and found nothing new worth adding.")),
+        ai.add.length > 0 && h(Table, { columns: ["Machine", "What it is", "Address", "SSH user", ""], empty: "", rows: offerRows(ai.add, true) }),
+        ai.skip.length > 0 && h("details", { className: "hb-details" },
+          h("summary", null, "Also on your network, not worth adding (" + ai.skip.length + ")"),
+          h("ul", { className: "hb-plain" }, ai.skip.map((x) => h("li", { key: x.address }, maskValue(x.address, hide) + ": " + x.what))))),
+      h(Problem, { text: problems.discover || problems.offer }));
+
+    const perDay = (PER_DAY[sched.every] || 0) * scheduledCount;
+    const schedule = h(Section, { icon: "Clock", title: "Scheduled scans" },
+      h("div", { className: "hb-segment", role: "radiogroup", "aria-label": "How often" }, Object.entries(EVERY).map(([k, v]) =>
+        h("label", { key: k, className: sched.every === k ? "hb-segment-on" : "" },
+          h("input", { type: "radio", name: "hb-every", className: "hb-sr", checked: sched.every === k,
+            onChange: () => { setSaved(false); setSched({ ...sched, every: k }); } }),
+          v))),
+      h("p", { className: "hb-note hb-muted" }, sched.every === "off"
+        ? "No scheduled scans. Machines are scanned only when you or Hermes ask."
+        : perDay + " read-only scans a day across " + scheduledCount + (scheduledCount === 1 ? " machine" : " machines") +
+          ". They run without the AI, so they cost no tokens."),
+      h("div", { className: "hb-form" },
+        h(Field, { label: "Send alerts to" }, h(Choice, { label: "Send alerts to", value: sched.deliver, options: DELIVER,
+          onChange: (deliver) => { setSaved(false); setSched({ ...sched, deliver }); } })),
+        h(Field, { label: "Alert when a disk passes (%)" }, h(Input, { type: "number", min: 50, max: 99, value: sched.disk_alert,
+          onChange: (e) => { setSaved(false); setSched({ ...sched, disk_alert: e.target.value }); } })),
+        h("div", { className: "hb-form-actions" },
+          h(Button, { onClick: () => act("schedule", "/schedule", "POST", sched).then((ok) => setSaved(ok)) },
+            busy === "schedule" ? "Saving…" : "Save schedule"),
+          saved && h(Tag, { icon: "CheckCircle" }, s.settings.scan_every === "off" ? "Saved. Scheduled scans are off."
+            : "Saved. Hermes's cron job hostbook-scan now scans every " + EVERY[s.settings.scan_every].toLowerCase() + "."))),
+      h(Problem, { text: problems.schedule }),
+      h("p", { className: "hb-note hb-muted" }, h(Tag, { icon: "Bell" },
+        "Alerts fire on changes only: a service stops or comes back, a disk crosses the line, a machine stops answering or answers again.")),
+      h("details", { className: "hb-details" },
+        h("summary", null, "What a scan runs on each machine"),
+        h("pre", { className: "hb-pre" }, s.scan_script)));
+
     const unlisted = s.recent.filter((r) => !r.listed);
-    const people = h("section", { className: "hb-card hb-setup" },
-      h(SectionHead, { icon: "Users", title: "people" }),
-      h("p", { className: "hb-note text-muted-foreground" }, s.people.length === 0
-        ? "Only you so far. People are recognised by their chat account. Once anyone is listed, only listed people can use hostbook from chat, so add your own account first, as owner."
+    const people = h(Section, { icon: "Users", title: "People",
+      aside: h("span", { className: "hb-muted" }, s.people.length ? s.people.length + " listed" : "Only you") },
+      h("p", { className: "hb-note hb-muted" }, s.people.length === 0
+        ? "People are recognised by their chat account. Once anyone is listed, only listed people can use hostbook from chat, so add your own account first, as owner."
         : "Only the people listed here can use hostbook from chat. On this page and in your terminal, you are always the owner."),
-      s.people.map((p) => {
-        const [platform, logo] = platformOf(p.platform);
-        const access = ACCESS[p.role] || ACCESS.view;
-        return h("div", { key: p.key, className: "hb-mrow hb-prow" },
-          h("div", null,
-            h("div", { className: "font-semibold" }, p.name),
-            h(Tag, { icon: logo, className: "text-muted-foreground" }, platform + " · " + p.id)),
-          h("div", null,
-            h(Choice, { label: "access for " + p.name, value: p.role, options: ACCESS,
-              onChange: (role) => updatePerson(p, { role }) }),
-            h("div", { className: "hb-help text-muted-foreground" }, h(Tag, { icon: access.icon }, access.help))),
-          h(Field, { label: "machines" }, h(Input, { defaultValue: p.hosts ? p.hosts.join(", ") : "", placeholder: "all machines",
-            "aria-label": "machines " + p.name + " can use",
-            onBlur: (e) => (e.target.value.trim() !== (p.hosts || []).join(", ")) && updatePerson(p, { hosts: e.target.value }),
-            onKeyDown: (e) => e.key === "Enter" && e.target.blur() })),
-          h("div", { className: "hb-actions" }, h(RemoveButton, { what: p.name,
-            onConfirm: () => act("people:" + p.key, "/people/" + encodeURIComponent(p.key), "DELETE") })));
-      }),
-      unlisted.length > 0 && h("div", { className: "hb-recent" },
-        h("p", { className: "text-muted-foreground" }, "Recently messaged Hermes:"),
-        unlisted.map((r) => {
+      s.people.length > 0 && h(Table, { columns: ["Person", "Chat account", "Access", "Machines", ""], empty: "",
+        rows: s.people.map((p) => {
+          const [platform, logo] = platformOf(p.platform);
+          return h("tr", { key: p.key },
+            h("td", { className: "hb-strong" }, p.name),
+            h("td", { className: "hb-muted" }, h(Tag, { icon: logo }, platform + " · " + maskValue(p.id, hide))),
+            h("td", null, h(Choice, { label: "Access for " + p.name, value: p.role, options: ACCESS, onChange: (role) => updatePerson(p, { role }) }),
+              h("div", { className: "hb-help" }, (ACCESS[p.role] || ACCESS.view).help)),
+            h("td", null, h(Input, { defaultValue: p.hosts ? p.hosts.join(", ") : "", placeholder: "All machines", className: "hb-input-sm",
+              "aria-label": "Machines " + p.name + " can use",
+              onBlur: (e) => (e.target.value.trim() !== (p.hosts || []).join(", ")) && updatePerson(p, { hosts: e.target.value }),
+              onKeyDown: (e) => e.key === "Enter" && e.target.blur() })),
+            h("td", { className: "hb-right" }, h(RemoveAction, { what: p.name,
+              onConfirm: () => act("people:" + p.key, "/people/" + encodeURIComponent(p.key), "DELETE") })));
+        }) }),
+      unlisted.length > 0 && h(React.Fragment, null,
+        h("h3", { className: "hb-subhead" }, "Recently messaged Hermes"),
+        h(Table, { columns: ["Chat account", "Last message", ""], empty: "", rows: unlisted.map((r) => {
           const [platform, logo] = platformOf(r.platform);
-          return h("div", { key: r.key, className: "hb-recent-row" },
-            h(Tag, { icon: logo }, platform + " · " + r.id),
-            h("span", { className: "text-muted-foreground" }, SDK.utils.timeAgo(r.seen)),
-            h("button", { type: "button", className: "hb-link",
-              onClick: () => setPerson({ ...person, platform: r.platform, id: r.id }) }, h(Icon, { name: "Plus" }), "use"));
-        })),
+          return h("tr", { key: r.key },
+            h("td", null, h(Tag, { icon: logo }, platform + " · " + maskValue(r.id, hide))),
+            h("td", { className: "hb-muted" }, SDK.utils.timeAgo(r.seen)),
+            h("td", { className: "hb-right" }, h(Action, { icon: "Plus", onClick: () => setPerson({ ...person, platform: r.platform, id: r.id }) }, "Use")));
+        }) })),
       h(Problem, { text: problems.people }),
+      h("h3", { className: "hb-subhead" }, "Add a person"),
       h("form", { className: "hb-form", onSubmit: (e) => {
         e.preventDefault();
         act("people", "/people", "POST", person).then((ok) => ok && setPerson({ platform: "telegram", id: "", name: "", role: "view", hosts: "" }));
       } },
-        h(Field, { label: "chat platform" }, h(Choice, { label: "chat platform", value: person.platform,
+        h(Field, { label: "Chat platform" }, h(Choice, { label: "Chat platform", value: person.platform,
           options: Object.fromEntries(Object.entries(PLATFORMS).map(([k, v]) => [k, v[0]])),
           onChange: (platform) => setPerson({ ...person, platform }) })),
-        h(Field, { label: "their user id there", help: "Easiest: have them message Hermes once, then pick them above." },
-          h(Input, { value: person.id, placeholder: "123456789", required: true,
-            onChange: (e) => setPerson({ ...person, id: e.target.value.trim() }) })),
-        h(Field, { label: "name" }, h(Input, { value: person.name, placeholder: "Ada",
-          onChange: (e) => setPerson({ ...person, name: e.target.value }) })),
-        h(Field, { label: "access", help: ACCESS[person.role].help }, h(Choice, { label: "access", value: person.role, options: ACCESS,
+        h(Field, { label: "Their user ID there", help: "Easiest: have them message Hermes once, then pick them above." },
+          h(Input, { value: person.id, placeholder: "123456789", required: true, onChange: (e) => setPerson({ ...person, id: e.target.value.trim() }) })),
+        h(Field, { label: "Name" }, h(Input, { value: person.name, placeholder: "Ada", onChange: (e) => setPerson({ ...person, name: e.target.value }) })),
+        h(Field, { label: "Access", help: ACCESS[person.role].help }, h(Choice, { label: "Access", value: person.role, options: ACCESS,
           onChange: (role) => setPerson({ ...person, role }) })),
-        h(Field, { label: "machines, optional" }, h(Input, { value: person.hosts, placeholder: "all machines",
+        h(Field, { label: "Machines (optional)" }, h(Input, { value: person.hosts, placeholder: "All machines",
           onChange: (e) => setPerson({ ...person, hosts: e.target.value }) })),
-        h(Button, { type: "submit" }, busy === "people" ? "Adding…" : "Add person")));
+        h("div", { className: "hb-form-actions" }, h(Button, { type: "submit" }, busy === "people" ? "Adding…" : "Add person"))));
 
-    return h(React.Fragment, null, machines, schedule, people);
+    return h(React.Fragment, null, machines, addMachine, discover, schedule, people);
   }
 
   /* ---------- page ---------- */
 
+  function readHash() {
+    const raw = window.location.hash.replace(/^#/, "");
+    if (raw === "setup") return { view: "setup", host: null };
+    const m = raw.match(/^machine=(.+)$/);
+    return { view: raw === "machines" || m ? "machines" : null, host: m ? decodeURIComponent(m[1]) : null };
+  }
+
   function HostsPage() {
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);
-    const [view, setView] = useState(null);
+    const initial = readHash();
+    const [view, setViewState] = useState(initial.view);
+    const [openHost, setOpenHostState] = useState(initial.host);
+    const [hide, setHideState] = useState(readPrivacy);
+
+    function setHash(next) { try { window.history.replaceState(null, "", "#" + next); } catch (_) { /* sandboxed */ } }
+    const setView = (v) => { setViewState(v); setHash(v); };
+    const setOpenHost = (name) => { setOpenHostState(name); setHash(name ? "machine=" + encodeURIComponent(name) : "machines"); };
+    const setHide = (on) => { setHideState(on); writePrivacy(on); };
 
     function load() {
-      return SDK.fetchJSON(API + "/hosts").then((d) => { setData(d); setView((v) => v || (d.hosts.length ? "hosts" : "setup")); })
+      return SDK.fetchJSON(API + "/hosts").then((d) => { setData(d); setViewState((v) => v || (d.hosts.length ? "machines" : "setup")); })
         .catch((e) => setError(problemText(e)));
     }
     useEffect(() => { load(); }, []);
 
     const tab = (key, label, icon) => h("button", { type: "button", role: "tab", className: "hb-tab" + (view === key ? " hb-tab-on" : ""),
       "aria-selected": view === key, onClick: () => setView(key) }, h(Icon, { name: icon }), label);
+    const latest = data && data.hosts.map((x) => x.scanned_at).filter(Boolean).sort().pop();
+    const every = data && data.settings.scan_every;
 
     return h("div", { className: "hb-page" },
-      h("div", { className: "hb-tabs", role: "tablist", "aria-label": "hostbook" }, tab("hosts", "machines", "HardDrives"), tab("setup", "setup", "GearSix")),
+      h("div", { className: "hb-toolbar" },
+        h("div", { className: "hb-tabs", role: "tablist", "aria-label": "hostbook" }, tab("machines", "Machines", "HardDrives"), tab("setup", "Setup", "GearSix")),
+        h("div", { className: "hb-toolbar-aside" },
+          data && h(Tag, { icon: "Clock", className: "hb-muted" }, (latest ? "Last scan " + SDK.utils.isoTimeAgo(latest) : "Not scanned yet") +
+            " · " + (every === "off" ? "Scheduled scans off" : "Scans every " + EVERY[every].toLowerCase())),
+          h("label", { className: "hb-switch" },
+            h("input", { type: "checkbox", checked: hide, onChange: (e) => setHide(e.target.checked) }),
+            h(Icon, { name: hide ? "EyeSlash" : "Eye" }), "Hide addresses and IDs"))),
       error ? h(Problem, { text: "Couldn't load hosts: " + error })
-        : !data ? h("p", { className: "text-muted-foreground" }, "Loading hosts…")
-          : view === "setup" ? h(SetupView, { onChanged: load })
-            : data.hosts.length ? h(HostsView, { data })
-              : h("p", { className: "text-muted-foreground" }, "No machines yet. Add one in setup."));
+        : !data ? h("p", { className: "hb-muted" }, "Loading hosts…")
+          : view === "setup" ? h(SetupView, { onChanged: load, hide })
+            : data.hosts.length ? h(MachinesView, { data, openHost, setOpenHost })
+              : h("p", { className: "hb-muted" }, "No machines yet. Add one in Setup."));
   }
 
   window.__HERMES_PLUGINS__.register("hostbook", HostsPage);

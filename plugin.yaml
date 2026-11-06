@@ -1,0 +1,15 @@
+name: hostbook
+version: "0.1.0"
+requires_hermes: ">=0.22.0"
+description: Run scripts on your named machines over SSH in one call, with no quoting, and per-host rules for what needs your approval
+author: Timidan
+license: MIT
+homepage: https://github.com/Timidan/hostbook
+provides_tools:
+  - host_run
+  - host_services
+  - service_action
+  - hostbook_setup
+provides_hooks:
+  - pre_llm_call
+  - pre_tool_call

@@ -64,7 +64,7 @@ Each machine has one rule.
 | Rule | What Hermes can do |
 |---|---|
 | Read only | Look. It never changes anything. |
-| Asks before changes | Changes wait for your OK in chat. |
+| Asks before changes | Changes wait for the owner's OK in chat. Co-admins can't make them. |
 | Open | Changes run without asking. Hermes's own safety checks still apply. |
 
 ## People
@@ -78,6 +78,18 @@ Add people in **Setup → People**, by their chat account.
 | Owner | Everything, including setup. |
 
 Add yourself first, as owner. When the list has anyone on it, chat accounts that are not on it cannot use hostbook. On the dashboard and in Hermes's own terminal, you are always the owner.
+
+## What it runs and stores
+
+- It connects over SSH only to machines you add, with your existing keys or ssh-agent. It stores a key's path, never the key.
+- It runs scripts on those machines when you ask in chat, after the machine's rule and Hermes's approvals.
+- It runs fixed, read-only scans from the dashboard and on a schedule. The schedule is a Hermes cron job, `hostbook-scan`, that never calls the AI. It adds `scripts/hostbook-scan.py` to your Hermes home.
+- When you connect as a non-root user, service restarts use `sudo -n`, which fails rather than asks for a password.
+- It keeps SSH connections open for up to 10 minutes to reuse them.
+- It calls your model only when you click **Get AI help**. It sends machine names, addresses and network neighbour tables. It never sends keys or file contents.
+- It keeps its data in `plugin-data/hostbook/` in your Hermes home. No telemetry.
+
+Details: [Security](docs/security.md).
 
 ## Learn more
 

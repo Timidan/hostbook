@@ -1,13 +1,14 @@
 """What runs on each host, and the scripts that control it."""
 
 import json
+import math
 import re
 import shlex
 
 # Read-only: lists containers, running services and Proxmox guests. Sections are marked `##name`.
 SCAN_SCRIPT = """\
 echo '##docker'
-if command -v docker >/dev/null 2>&1; then docker ps -a --format '{{json .}}' 2>/dev/null || echo '##warning docker_unreadable'; fi
+if command -v docker >/dev/null 2>&1; then docker ps -a --format '{"Names":{{json .Names}},"State":{{json .State}},"Status":{{json .Status}},"Image":{{json .Image}},"Ports":{{json .Ports}},"ComposeDir":{{json (.Label "com.docker.compose.project.working_dir")}},"ComposeService":{{json (.Label "com.docker.compose.service")}}}' 2>/dev/null || echo '##warning docker_unreadable'; fi
 echo '##systemd'; systemctl list-units --type=service --state=running --no-legend --plain 2>/dev/null
 echo '##qm'; command -v qm >/dev/null 2>&1 && qm list 2>/dev/null
 echo '##pct'; command -v pct >/dev/null 2>&1 && pct list 2>/dev/null
@@ -31,17 +32,33 @@ OS_UNITS = re.compile(
 )
 
 
-def _label(labels, key):
-    m = re.search(rf"(?:^|,){re.escape(key)}=([^,]*)", labels or "")
-    return m.group(1) if m else None
+MAX_SERVICES, MAX_TEXT = 2000, 512  # per machine; anything past this is dropped and flagged
+FACT_KEYS = {"cores", "load1", "uptime_s", "mem_total_gb", "mem_used_gb", "disk_total_gb", "disk_used_gb", "disk_pct", "os"}
+CONTROL_RE = re.compile(r"[\x00-\x1f\x7f-\x9f\u2028\u2029]+")
+
+
+def _one_line(value, limit=MAX_TEXT):
+    """Machine-supplied text as one printable line: it can't start a line of its own in an alert, and a
+    `MEDIA:` tag in it is no longer one (Hermes would attach the file it names to the delivered alert)."""
+    return re.sub("(?i)media:", "MEDIA :", CONTROL_RE.sub(" ", str(value or ""))).strip()[:limit]
 
 
 def parse_scan(output):
-    """Scan output → {"services": [{kind, name, state, detail, ...}], "facts": {cores, load1, ...}}."""
+    """Scan output → {"services": [{kind, name, state, detail, ...}], "facts": {cores, load1, ...}, "warnings": [...]}.
+    Bounded and one-line per field, whatever the machine sends."""
     found, facts, warnings, section = [], {}, [], None
+
+    def keep(record):
+        if len(found) < MAX_SERVICES and all(len(str(v or "")) <= MAX_TEXT for v in record.values()):
+            found.append({k: _one_line(v) for k, v in record.items()})
+        elif "too_much_output" not in warnings:
+            warnings.append("too_much_output")
+
     for line in output.splitlines():
         if line.startswith("##warning "):
-            warnings.append(line.split()[1])
+            code = line[len("##warning "):].strip()
+            if code in WARNINGS and code not in warnings:
+                warnings.append(code)
             continue
         if line.startswith("##"):
             section = line[2:].strip()
@@ -51,25 +68,26 @@ def parse_scan(output):
             continue
         if section == "facts" and "=" in line:
             key, value = line.split("=", 1)
-            facts[key] = value if key == "os" else _number(value)
+            if key in FACT_KEYS:
+                facts[key] = _one_line(value) if key == "os" else _number(value)
         elif section == "docker":
             try:
                 c = json.loads(line)
-            except ValueError:
+            except (ValueError, RecursionError):
                 continue
-            found.append({"kind": "docker", "name": c.get("Names", ""), "state": c.get("State", ""),
-                          "detail": c.get("Status", ""), "image": c.get("Image", ""), "ports": c.get("Ports", ""),
-                          "compose_dir": _label(c.get("Labels"), "com.docker.compose.project.working_dir"),
-                          "compose_service": _label(c.get("Labels"), "com.docker.compose.service")})
+            if isinstance(c, dict):
+                keep({"kind": "docker", "name": c.get("Names"), "state": c.get("State"), "detail": c.get("Status"),
+                      "image": c.get("Image"), "ports": c.get("Ports"),
+                      "compose_dir": c.get("ComposeDir"), "compose_service": c.get("ComposeService")})
         elif section == "systemd" and parts[0].endswith(".service") and not OS_UNITS.match(parts[0]):
-            found.append({"kind": "systemd", "name": parts[0][:-len(".service")], "state": parts[3] if len(parts) > 3 else "",
-                          "detail": " ".join(parts[4:])})
-        elif section in ("qm", "pct") and parts[0].isdigit():
+            keep({"kind": "systemd", "name": parts[0][:-len(".service")], "state": parts[3] if len(parts) > 3 else "",
+                  "detail": " ".join(parts[4:])})
+        elif section in ("qm", "pct") and parts[0].isdigit() and len(parts) >= 3:
             vm = section == "qm"  # qm: VMID NAME STATUS ...; pct: VMID STATUS [LOCK] NAME
-            found.append({"kind": "vm" if vm else "ct", "name": parts[1] if vm else parts[-1], "id": parts[0],
-                          "state": parts[2] if vm else parts[1], "detail": "Proxmox " + ("VM" if vm else "container")})
+            keep({"kind": "vm" if vm else "ct", "name": parts[1] if vm else parts[-1], "id": parts[0],
+                  "state": parts[2] if vm else parts[1], "detail": "Proxmox " + ("VM" if vm else "container")})
     facts = {k: v for k, v in facts.items() if v not in (None, "")}
-    if "cores" not in facts:
+    if "cores" not in facts and "no_usage" not in warnings:
         warnings.append("no_usage")
     return {"services": found, "facts": facts, "warnings": warnings}
 
@@ -77,6 +95,8 @@ def parse_scan(output):
 WARNINGS = {
     "docker_unreadable": ("containers hidden: this user can't read Docker", "Add the user to the docker group."),
     "no_usage": ("no usage numbers on this system", "Usage needs Linux /proc; services still show."),
+    "too_much_output": ("some services hidden: this machine reported more than hostbook keeps",
+                        "Check what runs there; hostbook keeps 2000 services per machine."),
 }
 
 # (pattern in ssh's output, code, message, fix). First match wins; formatted with target/address/port.
@@ -103,15 +123,16 @@ def classify(text, spec):
         if re.search(pattern, text or "", re.I):
             return {"code": code, "message": message.format(**fields), "fix": fix.format(**fields)}
     last = [ln for ln in (text or "").strip().splitlines() if ln.strip()][-1:] or ["no output"]
-    return {"code": "scan_failed", "message": "scan failed: " + last[0][:160],
+    return {"code": "scan_failed", "message": "scan failed: " + _one_line(last[0], 160),
             "fix": "Run `hermes hostbook scan` to see the full output."}
 
 
 def _number(value):
     try:
-        return float(value)
+        number = float(value)
     except ValueError:
         return None
+    return number if math.isfinite(number) else None  # nan and inf would break the page's JSON
 
 
 def diff(host, before, after, disk_alert=90):
@@ -192,12 +213,13 @@ def parse_discovery(output):
             try:
                 for iface in json.loads(text or "[]"):
                     if not SKIP_IFACES.match(iface.get("name", "")):
-                        ips += [a["ip-address"] for a in iface.get("ip-addresses", []) if a.get("ip-address-type") == "ipv4"]
-            except (ValueError, TypeError, AttributeError):
+                        ips += [a.get("ip-address") for a in iface.get("ip-addresses", []) if a.get("ip-address-type") == "ipv4"]
+            except (ValueError, TypeError, AttributeError, RecursionError):
                 pass
         else:
-            ips = [ln.strip() for ln in chunk if re.fullmatch(r"\d+\.\d+\.\d+\.\d+", ln.strip())]
-        found[key] = [ip for ip in ips if not ip.startswith(("127.", "169.254."))]
+            ips = [ln.strip() for ln in chunk]
+        found[key] = [ip for ip in ips if isinstance(ip, str) and re.fullmatch(r"\d+\.\d+\.\d+\.\d+", ip, re.A)
+                      and not ip.startswith(("127.", "169.254."))]
 
     for line in output.splitlines():
         if m := re.match(r"^##(vm|ct) (\d+)$", line.strip()):

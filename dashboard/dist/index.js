@@ -461,15 +461,17 @@
       send("/discover/evidence", "POST").then((ev) => askModel(JSON.stringify(ev)).then((text) => {
         const json = text.slice(text.indexOf("{"), text.lastIndexOf("}") + 1);
         const seen = new Set([...ev.proxmox_guests_not_added.map((o) => o.address), ...ev.other_addresses.map((o) => o.address)]);
-        // Keep only addresses that were in the evidence: the model must not invent machines.
-        const list = (JSON.parse(json).suggestions || []).filter((x) => x && seen.has(x.address));
+        const known = new Set(ev.known_machines.map((m) => m.alias));
+        // Keep only addresses that were in the evidence and names not taken: the model must not invent machines
+        // or replace one.
+        const list = (JSON.parse(json).suggestions || []).filter((x) => x && seen.has(x.address) && !known.has(x.alias));
         setAi({ add: list.filter((x) => x.add), skip: list.filter((x) => !x.add), checked: seen.size });
       })).catch((e) => setProblems((p) => ({ ...p, discover: e instanceof SyntaxError ? "The model's answer wasn't readable. Try again." : problemText(e) })))
         .finally(() => setBusy(null));
     }
 
     function addOffer(o, fromAi) {
-      act("offer:" + o.alias, "/machines", "POST", { alias: o.alias, target: (offerUser[o.alias] || o.user || "root") + "@" + o.address, rule: "approve" })
+      act("offer:" + o.alias, "/machines", "POST", { alias: o.alias, target: (offerUser[o.alias] || o.user || "root") + "@" + o.address, rule: "approve", new: true })
         .then((ok) => {
           if (!ok) return;
           if (fromAi) setAi((a) => ({ ...a, add: a.add.filter((y) => y.alias !== o.alias) }));
@@ -499,18 +501,18 @@
           h("td", { className: "hb-strong" }, m.alias),
           h("td", { className: "hb-muted hb-wrap" }, maskValue(m.target, hide) + (m.jump ? " via " + m.jump : "")),
           h("td", null, h(Choice, { label: "Rule for " + m.alias, value: m.rule, options: RULE,
-            onChange: (rule) => act("machines:" + m.alias, "/machines/" + m.alias, "POST", { rule }) }),
+            onChange: (rule) => act("machines:" + m.alias, "/machines/" + encodeURIComponent(m.alias), "POST", { rule }) }),
           h("div", { className: "hb-help" }, RULE[m.rule].help)),
           h("td", null, h("label", { className: "hb-check" },
             h("input", { type: "checkbox", checked: m.scheduled, "aria-label": "Include " + m.alias + " in scheduled scans",
-              onChange: (e) => act("machines:" + m.alias, "/machines/" + m.alias, "POST", { scheduled: e.target.checked }) }),
+              onChange: (e) => act("machines:" + m.alias, "/machines/" + encodeURIComponent(m.alias), "POST", { scheduled: e.target.checked }) }),
             m.scheduled ? "Included" : "Skipped")),
           h("td", { className: "hb-wrap" }, busy === "check:" + m.alias ? h(Tag, { icon: "ArrowClockwise", className: "hb-muted" }, "Checking…")
             : h(Tag, { icon: m.ok ? "CheckCircle" : "WarningCircle", className: m.ok ? "" : "text-destructive" },
               plain(m.status)[0].toUpperCase() + plain(m.status).slice(1))),
           h("td", { className: "hb-right" }, h("div", { className: "hb-actions" },
-            h(Action, { icon: "ArrowClockwise", onClick: () => act("check:" + m.alias, "/machines/" + m.alias + "/check", "POST") }, "Check"),
-            h(RemoveAction, { what: m.alias, onConfirm: () => act("machines:" + m.alias, "/machines/" + m.alias, "DELETE") }))))) }),
+            h(Action, { icon: "ArrowClockwise", onClick: () => act("check:" + m.alias, "/machines/" + encodeURIComponent(m.alias) + "/check", "POST") }, "Check"),
+            h(RemoveAction, { what: m.alias, onConfirm: () => act("machines:" + m.alias, "/machines/" + encodeURIComponent(m.alias), "DELETE") }))))) }),
       h(Problem, { text: problems.machines || problems.check }));
 
     const addMachine = h(Section, { icon: "Plus", title: "Add a machine" },
@@ -596,7 +598,7 @@
 
     const unlisted = s.recent.filter((r) => !r.listed);
     const people = h(Section, { icon: "Users", title: "People",
-      aside: h("span", { className: "hb-muted" }, s.people.length ? s.people.length + " listed" : "Only you") },
+      aside: h("span", { className: "hb-muted" }, s.people.length ? s.people.length + " listed" : "Anyone Hermes lets in") },
       h("p", { className: "hb-note hb-muted" }, s.people.length === 0
         ? "People are recognised by their chat account. Once anyone is listed, only listed people can use hostbook from chat, so add your own account first, as owner."
         : "Only the people listed here can use hostbook from chat. On this page and in your terminal, you are always the owner."),

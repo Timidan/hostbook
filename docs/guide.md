@@ -66,7 +66,7 @@ Check the suggested SSH user before adding: Home Assistant OS uses `hassio`, Ubu
 | Rule | What Hermes may do |
 |---|---|
 | Read only | Look, never change. Scripts that change things are blocked. |
-| Asks before changes | Changes wait for your OK in chat. Reads run freely. |
+| Asks before changes | Changes wait for the owner's OK in chat; co-admins can't make them. Reads run freely. |
 | Open | Changes run without asking. Hermes's own safety checks still apply. |
 
 hostbook decides whether a script changes something from what it contains. Scripts it can't read through (nested shells, `eval`, decoded payloads, inline interpreters) count as changes. This is a guardrail against mistakes, not a sandbox; see [access control](access-control.md#limits).
@@ -104,7 +104,7 @@ hermes hostbook schedule off
 
 Scans run as one Hermes cron job named `hostbook-scan` in no-agent mode: a script runs on schedule and the AI is never called, so scans cost no tokens. The job appears on Hermes's Cron page, where you can pause or remove it.
 
-Alerts are sent only when something changes: a service stops or comes back, a disk crosses the threshold, a machine stops answering or answers again. A quiet run sends nothing.
+Alerts are sent only when something changes: a service stops or comes back, a disk crosses the threshold, a machine stops answering or answers again. A quiet run sends nothing. Changes found by a scan you start yourself, in Setup, in chat or on the command line, are held and sent with the next scheduled scan.
 
 ## Troubleshooting
 
@@ -119,6 +119,7 @@ hostbook names the cause of a failed connection and the fix, in Setup, on the ma
 | This machine's identity changed | Its SSH host key is different from last time. | If you rebuilt it, `ssh-keygen -R <address>`. If you didn't, find out why before connecting. hostbook never accepts a changed key. |
 | Containers hidden | The SSH user can't read Docker. | Add the user to the `docker` group, or connect as a user who can. |
 | No usage numbers | The machine has no Linux `/proc` (macOS, BSD). | Nothing to fix; services still show. |
+| Some services hidden | The machine reported more than 2000 services. | Check what runs there; hostbook keeps 2000 per machine. |
 | No Hosts tab | The dashboard loaded its plugin list before hostbook was enabled. | Restart the Hermes dashboard. |
 | "can view, which covers scans, status and logs" | A co-admin with view access asked for a script or a change. | Give them *can operate*, or do it yourself. |
 
@@ -174,3 +175,4 @@ Everything lives in `plugin-data/hostbook/` in your Hermes home.
 | `settings.yaml` | Scan frequency, alert target, disk threshold. |
 | `services.json`, `history.json` | The last scan and 24 hours of usage. |
 | `recent.json` | The last 20 chat accounts that messaged Hermes, for picking co-admins. |
+| `pending.json` | Alerts from scans you started, waiting for the next scheduled scan. |

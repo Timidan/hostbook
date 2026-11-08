@@ -1,7 +1,7 @@
 name: hostbook
-version: "0.1.0"
+version: "0.2.0"
 requires_hermes: ">=0.22.0"
-description: Run scripts on your named machines over SSH in one call, with no quoting, and per-host rules for what needs your approval
+description: A dashboard for the machines and services on your network, and tools for Hermes to check and fix them under per-machine rules
 author: Timidan
 license: MIT
 homepage: https://github.com/Timidan/hostbook

@@ -3,7 +3,7 @@
   "label": "Hosts",
   "description": "Your machines and what runs on them",
   "icon": "Terminal",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "tab": { "path": "/hostbook", "position": "end" },
   "entry": "dist/index.js",
   "css": "dist/style.css",

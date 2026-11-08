@@ -5,10 +5,25 @@ import importlib.util
 import re
 import sys
 from pathlib import Path
+from urllib.parse import urlsplit
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Request
 
-router = APIRouter()
+
+def _from_this_page(request: Request):
+    """Changes only from the dashboard page itself: no other site's form or fetch, and nothing but JSON."""
+    if request.method == "GET":
+        return
+    head = request.headers
+    site, origin = head.get("sec-fetch-site"), head.get("origin")
+    # Browsers send Sec-Fetch-Site, which a reverse proxy leaves alone; Origin vs Host is only the fallback.
+    if (site not in (None, "same-origin", "none")
+            or (site is None and origin and urlsplit(origin).netloc not in (head.get("host"), head.get("x-forwarded-host")))
+            or not head.get("content-type", "").startswith("application/json")):
+        raise HTTPException(status_code=403, detail="Changes have to come from the Hosts page itself.")
+
+
+router = APIRouter(dependencies=[Depends(_from_this_page)])
 GUEST_KIND = {"vm": "VM", "ct": "LXC"}
 _PKG = Path(__file__).resolve().parents[1]
 
@@ -71,7 +86,7 @@ def setup():
         "schedules": list(hb.SCHEDULES),
         "scan_script": hb.services.SCAN_SCRIPT,
         "people": [{"key": key, "platform": key.partition(":")[0], "id": key.partition(":")[2],
-                    "name": p.get("name", key), "role": p.get("role", "view"), "hosts": p.get("hosts")}
+                    "name": p.get("name", key), "role": p.get("role", "view"), "hosts": hb.as_list(p.get("hosts"))}
                    for key, p in sorted((people or {}).items())],
         "recent": [{"key": key, "platform": key.partition(":")[0], "id": key.partition(":")[2], "seen": seen,
                     "listed": key in (people or {})} for key, seen in hb._json("recent.json", {}).items()],
@@ -99,6 +114,7 @@ def discover_evidence():
 @router.post("/machines")
 def add_machine(body: dict):
     alias = (body.get("alias") or "").strip()
+    _ok(f"{alias} is already in the hostbook." if body.get("new") and alias in _hb().load_hosts() else None)
     _ok(_hb().add_host(alias, body.get("target") or "", body.get("key") or None, body.get("jump") or None,
                        body.get("rule") or "approve"))
     _check(alias)
@@ -145,6 +161,7 @@ def add_person(body: dict):
     _ok(None if re.fullmatch(r"[a-z_]{2,24}", platform) else "Pick the chat platform this person uses.")
     _ok(None if uid and len(uid) <= 128 and not re.search(r"\s", uid) else "Enter their user id on that platform.")
     _ok(None if role in ("view", "operate", "owner") else "Access must be view, operate or owner.")
+    _ok("IRC nicks aren't verified, so IRC people can only view." if platform == "irc" and role != "view" else None)
     pid = f"{platform}:{uid}"
     hosts = [h.strip() for h in (body.get("hosts") or "").split(",") if h.strip()]
     _ok(None if all(h in hb.load_hosts() for h in hosts) else "Only list machines that are in the hostbook.")
@@ -160,6 +177,8 @@ def delete_person(pid: str):
     hb = _hb()
     with hb.locked():
         people = hb.load_people() or {}
+        _ok("That is the last person. With nobody listed, everyone Hermes admits becomes an owner."
+            if list(people) == [pid] else None)
         people.pop(pid, None)
         hb.save_people(people)
     return setup()

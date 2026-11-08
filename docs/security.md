@@ -5,10 +5,10 @@ What hostbook connects to, what it runs, what it stores, and when it calls a mod
 ## Connections
 
 - hostbook connects over SSH only to machines you add, as the user you give.
-- It uses your existing keys, `ssh-agent` or SSH config. It stores a key's **path** if you give one, never the key itself.
-- New host keys are accepted on first contact (`StrictHostKeyChecking=accept-new`). A changed host key is refused and reported, never accepted.
+- It uses your existing keys, `ssh-agent` or SSH config. It stores a key's **path** if you give one, never the key itself. When a machine has a key file, ssh offers only that key.
+- New host keys are accepted on first contact (`StrictHostKeyChecking=accept-new`). A changed host key is refused and reported, never accepted. Commands run from chat assume Hermes's local terminal backend; on a container or remote backend, host-key pinning uses that backend's `known_hosts`.
 - Connection settings are checked so that a user, address or key can never be read as an `ssh` option.
-- Connections are shared for 10 minutes to keep repeated calls fast (`ControlMaster`), with sockets in hostbook's data folder. Sharing is off on Windows and when the socket path would be too long.
+- Connections are shared for 10 minutes to keep repeated calls fast (`ControlMaster`), one per machine and key, with sockets in hostbook's data folder. Sharing is off on Windows and when the socket path would be too long.
 
 ## What runs on your machines
 
@@ -28,7 +28,7 @@ On machines where you connect as a non-root user, systemd start, stop and restar
 
 ## What it stores
 
-In `plugin-data/hostbook/` in your Hermes home: your machines, people and settings, the last scan, 24 hours of usage history, connection-sharing sockets, and the last 20 chat accounts that messaged Hermes (platform, ID and time), which Setup offers when you add people. Nothing is sent anywhere.
+In `plugin-data/hostbook/` in your Hermes home: your machines, people and settings, the last scan, 24 hours of usage history, alerts waiting for the next scheduled scan, connection-sharing sockets, and the last 20 chat accounts that messaged Hermes (platform, ID and time), which Setup offers when you add people. Nothing is sent anywhere. The folder and its files are readable only by the Hermes user.
 
 ## Model calls
 
@@ -42,7 +42,7 @@ It never sends keys, passwords, tokens or file contents. The model's answer is c
 
 ## The dashboard
 
-The Hosts tab's routes sit behind the Hermes dashboard's login. They read hostbook's data, change it when you use Setup, and run the read-only scripts above. They never run a custom script.
+The Hosts tab's routes sit behind the Hermes dashboard's login. They read hostbook's data, change it when you use Setup, and run the read-only scripts above. They never run a custom script. Requests that change anything must come from the Hosts page itself and carry JSON; other sites and plain form posts are refused.
 
 ## Telemetry
 

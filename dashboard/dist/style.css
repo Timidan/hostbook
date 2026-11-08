@@ -4,6 +4,7 @@
 .hb-muted { color: var(--color-muted-foreground); }
 .hb-strong { font-weight: 600; }
 .hb-wrap { overflow-wrap: anywhere; }
+.hb-nowrap { white-space: nowrap; }
 .hb-right { text-align: right; white-space: nowrap; }
 .hb-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .hb-tag { display: inline-flex; align-items: center; gap: .375rem; }

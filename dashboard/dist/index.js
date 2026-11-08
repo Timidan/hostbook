@@ -135,6 +135,7 @@
     simplex: ["SimpleX", "ChatCircle"], feishu: ["Feishu", "ChatCircle"], dingtalk: ["DingTalk", "ChatCircle"], wecom: ["WeCom", "ChatCircle"],
   };
   const EVERY = { off: "Off", "15m": "15 min", "30m": "30 min", "1h": "Hourly", "6h": "6 hours", daily: "Daily" };
+  const SCANS = { "15m": "every 15 min", "30m": "every 30 min", "1h": "hourly", "6h": "every 6 hours", daily: "daily" };
   const PER_DAY = { "15m": 96, "30m": 48, "1h": 24, "6h": 4, daily: 1 };
   const DELIVER = { local: "Nowhere, this page only", telegram: "Telegram home chat", discord: "Discord home channel",
     slack: "Slack home channel", signal: "Signal", matrix: "Matrix", mattermost: "Mattermost", whatsapp: "WhatsApp", email: "Email" };
@@ -509,7 +510,7 @@
       s.machines.length > 0 && h(Table, { columns: ["Machine", "Connects as", "Rule", "Scheduled scans", "Last check", ""], empty: "",
         rows: s.machines.map((m) => h("tr", { key: m.alias },
           h("td", { className: "hb-strong" }, m.alias),
-          h("td", { className: "hb-muted hb-wrap" }, maskValue(m.target, hide) + (m.jump ? " via " + m.jump : "")),
+          h("td", { className: "hb-muted hb-nowrap" }, maskValue(m.target, hide) + (m.jump ? " via " + m.jump : "")),
           h("td", null, h(Choice, { label: "Rule for " + m.alias, value: m.rule, options: RULE,
             onChange: (rule) => act("machines:" + m.alias, "/machines/" + encodeURIComponent(m.alias), "POST", { rule }) }),
           h("div", { className: "hb-help" }, RULE[m.rule].help)),
@@ -598,7 +599,7 @@
           h(Button, { onClick: () => act("schedule", "/schedule", "POST", sched).then((ok) => setSaved(ok)) },
             busy === "schedule" ? "Saving…" : "Save schedule"),
           saved && h(Tag, { icon: "CheckCircle" }, s.settings.scan_every === "off" ? "Saved. Scheduled scans are off."
-            : "Saved. Hermes's cron job hostbook-scan now scans every " + EVERY[s.settings.scan_every].toLowerCase() + "."))),
+            : "Saved. Hermes's cron job hostbook-scan now scans " + SCANS[s.settings.scan_every] + "."))),
       h(Problem, { text: problems.schedule }),
       h("p", { className: "hb-note hb-muted" }, h(Tag, { icon: "Bell" },
         "Alerts fire on changes only: a service stops or comes back, a disk crosses the line, a machine stops answering or answers again.")),
@@ -696,7 +697,7 @@
           h("div", { className: "hb-tabs", role: "tablist", "aria-label": "hostbook" }, tab("machines", "Machines", "HardDrives"), tab("setup", "Setup", "GearSix"))),
         h("div", { className: "hb-toolbar-aside" },
           data && h(Tag, { icon: "Clock", className: "hb-muted" }, (latest ? "Last scan " + SDK.utils.isoTimeAgo(latest) : "Not scanned yet") +
-            " · " + (every === "off" ? "Scheduled scans off" : "Scans every " + EVERY[every].toLowerCase())),
+            " · " + (every === "off" ? "Scheduled scans off" : "Scans " + SCANS[every])),
           h("label", { className: "hb-switch" },
             h("input", { type: "checkbox", checked: hide, onChange: (e) => setHide(e.target.checked) }),
             h(Icon, { name: hide ? "EyeSlash" : "Eye" }), "Hide addresses and IDs"))),

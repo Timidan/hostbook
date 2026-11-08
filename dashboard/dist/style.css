@@ -11,6 +11,8 @@
 /* toolbar */
 .hb-toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .75rem 1.5rem; border-bottom: 1px solid var(--color-border); }
 .hb-tabs { display: flex; gap: 1.5rem; }
+.hb-toolbar-main { display: flex; align-items: center; gap: 1.5rem; }
+.hb-brand { height: 1.25rem; width: auto; flex: none; fill: currentColor; }
 .hb-tab { display: inline-flex; align-items: center; gap: .4rem; margin-bottom: -1px; padding: .625rem 0; color: var(--color-muted-foreground); background: none; border: 0; border-bottom: 2px solid transparent; font: inherit; font-weight: 500; cursor: pointer; }
 .hb-tab:hover { color: inherit; }
 .hb-tab-on { color: inherit; border-bottom-color: currentColor; }

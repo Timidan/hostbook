@@ -1,3 +1,5 @@
+![](docs/logo/icon.svg)
+
 # hostbook
 
 **A dashboard for the machines and services on your network, inside Hermes.**

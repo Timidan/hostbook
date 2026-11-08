@@ -2,7 +2,7 @@
   "name": "hostbook",
   "label": "Hosts",
   "description": "Your machines and what runs on them",
-  "icon": "Terminal",
+  "icon": "Activity",
   "version": "0.2.0",
   "tab": { "path": "/hostbook", "position": "end" },
   "entry": "dist/index.js",

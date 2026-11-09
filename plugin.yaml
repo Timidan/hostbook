@@ -1,5 +1,5 @@
 name: hostbook
-version: "0.2.0"
+version: "0.2.1"
 requires_hermes: ">=0.22.0"
 description: A dashboard for the machines and services on your network, and tools for Hermes to check and fix them under per-machine rules
 author: Timidan

@@ -1,4 +1,4 @@
-"""Run: python3 test_hostbook.py  (needs PyYAML; works with or without Hermes on the path)."""
+"""Run: python3 test_hostbook.py  (works with Hermes on the path, or with PyYAML standing in for hermes_yaml)."""
 
 import importlib.util
 import os
@@ -16,6 +16,11 @@ stub = types.ModuleType("plugins.plugin_storage")
 stub.plugin_data_dir = lambda name: DATA
 sys.modules.setdefault("plugins", types.ModuleType("plugins"))
 sys.modules["plugins.plugin_storage"] = stub
+try:
+    import hermes_yaml  # noqa: F401
+except ImportError:
+    import yaml
+    sys.modules["hermes_yaml"] = yaml
 
 here = pathlib.Path(__file__).parent
 spec = importlib.util.spec_from_file_location("hostbook", here / "__init__.py", submodule_search_locations=[str(here)])

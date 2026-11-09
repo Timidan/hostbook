@@ -12,7 +12,7 @@ import shutil
 import subprocess
 import time
 
-import yaml
+import hermes_yaml as yaml
 
 try:
     import fcntl
